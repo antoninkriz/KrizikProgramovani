@@ -17,7 +17,7 @@ int main() {
                     pocet[x]++;
                 }
             }
-            std::cout << "Uspesne vybrano " << (pocet[0] * bankovky[0] + pocet[1] * bankovky[1] + pocet[2] * bankovky[2] + pocet[3] * bankovky[3]) << " ve formatu: " << pocet[0] << "x" << bankovky[0] << ", " << pocet[1] << "x" << bankovky[1] << ", " << pocet[2] << "x" << bankovky[2] << ", " << pocet[3] << "x" << bankovky[3] << std::endl << std::endl << "--------------------------------" << std::endl << std::endl;
+            std::cout << "Uspesne vybrano " << sCastka << " ve formatu: " << pocet[0] << "x" << bankovky[0] << ", " << pocet[1] << "x" << bankovky[1] << ", " << pocet[2] << "x" << bankovky[2] << ", " << pocet[3] << "x" << bankovky[3] << std::endl << std::endl << "--------------------------------" << std::endl << std::endl;
         } else {
             std::cout << "Chybna castka" << std::endl;
             goto znovu;

@@ -1,7 +1,7 @@
 #include <iostream>
 int main() {
     int iCastka, bankovky[4] = {5000, 2000, 1000, 200}, pocet[4] = {0, 0, 0, 0};
-    std::string karta, pin, sCastka, cisla = "0123456789";
+    std::string karta, pin, sCastka, cisla = "0123456789", pomlcky = "--------------------------------";
     std::cout << "Zadejte cislo karty a pote pin" << std::endl;
     std::cin >> karta;
     std::cin >> pin;
@@ -17,12 +17,12 @@ int main() {
                     pocet[x]++;
                 }
             }
-            std::cout << "Uspesne vybrano " << sCastka << " ve formatu: " << pocet[0] << "x" << bankovky[0] << ", " << pocet[1] << "x" << bankovky[1] << ", " << pocet[2] << "x" << bankovky[2] << ", " << pocet[3] << "x" << bankovky[3] << std::endl << std::endl << "--------------------------------" << std::endl << std::endl;
+            std::cout << "Uspesne vybrano " << sCastka << " ve formatu: " << pocet[0] << "x" << bankovky[0] << ", " << pocet[1] << "x" << bankovky[1] << ", " << pocet[2] << "x" << bankovky[2] << ", " << pocet[3] << "x" << bankovky[3] << std::endl << std::endl << pomlcky << std::endl << std::endl;
         } else {
             std::cout << "Chybna castka" << std::endl;
             goto znovu;
         }
     } else
-        std::cout << "Chybne cislo karty a nebo pin" << std::endl << std::endl << "--------------------------------" << std::endl << std::endl;
+        std::cout << "Chybne cislo karty a nebo pin" << std::endl << std::endl << pomlcky << std::endl << std::endl;
     return main();
 }

@@ -9,7 +9,7 @@ int main() {
         znovu:
         std::cout << "Zadejte castku k vyberu (max 24000, musi byt delitelna 200)" << std::endl;
         std::cin >> sCastka;
-        if (sCastka.find_first_not_of(cisla) == std::string::npos && atoi(sCastka.c_str()) > 0 && (atoi(sCastka.c_str()) % 200 == 0 || atoi(sCastka.c_str()) % 500 == 0) && atoi(sCastka.c_str()) <= 24000) {
+        if (sCastka.find_first_not_of(cisla) == std::string::npos && atoi(sCastka.c_str()) > 0 && atoi(sCastka.c_str()) % 200 == 0 && atoi(sCastka.c_str()) <= 24000) {
             iCastka = atoi(sCastka.c_str());
             for (int x = 0; x < 4; x++) {
                 while (iCastka >= bankovky[x]) {
@@ -17,9 +17,9 @@ int main() {
                     pocet[x]++;
                 }
             }
-            std::cout << "Uspesne vybrano " << (pocet[0] * bankovky[0] + pocet[1] * bankovky[1] + pocet[2] * bankovky[2] + pocet[3] * bankovky[3]) << " ve formatu: " << pocet[0] << "x" << bankovky[0] << ", " << pocet[1] << "x" << bankovky[1] << ", " << pocet[2] << "x" << bankovky[2] << ", " << pocet[3] << "x" << bankovky[3];
+            std::cout << "Uspesne vybrano " << (pocet[0] * bankovky[0] + pocet[1] * bankovky[1] + pocet[2] * bankovky[2] + pocet[3] * bankovky[3]) << " ve formatu: " << pocet[0] << "x" << bankovky[0] << ", " << pocet[1] << "x" << bankovky[1] << ", " << pocet[2] << "x" << bankovky[2] << ", " << pocet[3] << "x" << bankovky[3] << std::endl << std::endl << "--------------------------------" << std::endl << std::endl;
         } else {
-            std::cout << "Chybna castka";
+            std::cout << "Chybna castka" << std::endl;
             goto znovu;
         }
     } else

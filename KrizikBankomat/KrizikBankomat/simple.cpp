@@ -83,10 +83,10 @@ int main() {
 
                 // Hotovo, muzeme nyni vypsat vysledek
                 cout << "Vybrana castka " << zadavaniCastky << endl;
-                cout << "200 x " + pocet200 << endl;
-                cout << "1000 x " + pocet1000 << endl;
-                cout << "2000 x " + pocet2000 << endl;
-                cout << "5000 x " + pocet5000 << endl;
+                cout << "200 x " << pocet200 << endl;
+                cout << "1000 x " << pocet1000 << endl;
+                cout << "2000 x " << pocet2000 << endl;
+                cout << "5000 x " << pocet5000 << endl;
 
                 // Ukoncime cyklus zadavani castky a tim skoncime program
                 zadavaniCastky = false;

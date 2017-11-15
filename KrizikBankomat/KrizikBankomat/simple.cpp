@@ -92,7 +92,7 @@ int main() {
                 zadavaniCastky = false;
             } else {
                 // Neni, zadavame znovu
-                cout << "Spatna castku, zkuste to prosim znovu" << endl;
+                cout << "Spatna castka, zkuste to prosim znovu" << endl;
             }
         }
     }

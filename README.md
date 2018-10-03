@@ -1,11 +1,15 @@
 # KrizikProgramovani
 Sbirka vetsiny kodu co jsem za dobu sveho pobytu napsal na SPSE Frantiska Krizika
 
-## C++
+## 4C
+
+## 3C
+### C++
 * KrizikBankomat
 * KrizikVypocetDPH
 
-## C#
+## 2C
+### C#
 * KrizikCteniZapisDoSouboru
 * KrizikFibonacci
 * KrizikKryptografieCesarovaSifra

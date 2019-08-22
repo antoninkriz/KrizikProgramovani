@@ -1,5 +1,5 @@
 # KrizikProgramovani
-Sbirka vetsiny kodu co jsem za dobu sveho pobytu napsal na SPSE Frantiska Krizika
+Collection of most code/projects I wrote when studying at [SPSE Frantiska Krizika](https://skolakrizk.cz/)
 
 ## 4C
 ### Web

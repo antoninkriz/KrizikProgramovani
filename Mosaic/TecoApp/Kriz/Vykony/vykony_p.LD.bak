@@ -1,0 +1,65 @@
+PROGRAM vykony_p
+  VAR_INPUT
+  END_VAR
+  VAR_OUTPUT
+  END_VAR
+  VAR
+  END_VAR
+  VAR_TEMP
+  END_VAR
+{NOCODE}
+(*
+MAX 3W celkem, neodpojovat jiz bezici stroj
+*)
+
+{NETWORK}
+(*
+Stroj 1W
+*)
+  LD_BOOL   "S1"
+  ANDN      "P3"
+  ST        "P1"
+{/NETWORK}
+
+{NETWORK}
+(*
+Stroj 2W
+*)
+  LD_BOOL   "S2"
+  ANDN      "P3"
+  ST        "P2"
+{/NETWORK}
+
+{NETWORK}
+(*
+Stroj 3W
+*)
+  LD_BOOL   "S3"
+  ANDN      "P1"
+  ANDN      "P2"
+  ST        "P3"
+{/NETWORK}
+
+
+{/NOCODE}
+{ILCODE}
+(* Network 1 *)
+(* 19 *)    LD_BOOL   S1
+(* 20 *)    ANDN      P3
+(* 21 *)    ST        P1
+(* Network 2 *)
+(* 28 *)    LD_BOOL   S2
+(* 29 *)    ANDN      P3
+(* 30 *)    ST        P2
+(* Network 3 *)
+(* 37 *)    LD_BOOL   S3
+(* 38 *)    ANDN      P1
+(* 39 *)    ANDN      P2
+(* 40 *)    ST        P3
+END_PROGRAM
+{STCODE}
+
+{DEBUG_INFO=
+ 19:47:0 20:48:0 21:49:0 28:51:0 29:52:0 30:53:0 37:55:0 38:56:0 39:57:0
+ 40:58:0
+}

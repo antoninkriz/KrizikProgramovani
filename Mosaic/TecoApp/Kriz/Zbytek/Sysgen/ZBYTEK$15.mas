@@ -1,0 +1,17 @@
+#srcfile 'H:\MOSAIC\TECOAPP\KRIZ\ZBYTEK\ZBYTEK.MCF'
+ 
+#srcfile 'H:\MOSAIC\TECOAPP\KRIZ\ZBYTEK\ZBYTEK.MCF'
+
+; ***** RESOURCE - CPM
+#reg zbytek_p zbytek_i
+#srcline 4 ;    PROGRAM zbytek_i WITH FreeWheeling : zbytek_p ();
+P     0
+ LEA  zbytek_i
+ CAL  zbytek_p_L0
+E     0
+
+
+
+ 
+
+#srcfile ''

@@ -1,0 +1,6 @@
+CONFIGURATION PocetKroku
+  RESOURCE CPM
+    TASK FreeWheeling(Number := 0);
+    PROGRAM pocetkroku_i WITH FreeWheeling : pocetkroku_p ();
+  END_RESOURCE
+END_CONFIGURATION

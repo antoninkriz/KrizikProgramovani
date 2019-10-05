@@ -1,0 +1,115 @@
+PROGRAM zbytek_p
+  VAR_INPUT
+  END_VAR
+  VAR_OUTPUT
+  END_VAR
+  VAR
+    casovac : TON;
+    imp : BOOL;
+    cas : TIME;
+    citac : CTUD;
+    max : BOOL;
+    min : BOOL;
+    prep : BOOL;
+    h : INT;
+  END_VAR
+  VAR_TEMP
+  END_VAR
+{NOCODE}
+(*
+  Komentáø ke schématu
+*)
+
+{NETWORK}
+(*
+  Komentáø k obvodu
+*)
+  LD_BOOL   "S1"
+  ANDN      "imp"
+  {POU:TON} "casovac"
+    {PIN:IN} {/PIN}
+    {PIN:PT} "T#1s" {/PIN}
+    {PINO:Q} {/PIN}
+    {PINO:ET} "cas" {/PIN}
+  {/POU}
+  ST        "imp"
+{/NETWORK}
+
+{NETWORK}
+(*
+
+*)
+  LD_BOOL   "imp"
+  AND       "S1"
+  AND       "prep"
+  {POU:CTUD} "citac"
+    {PIN:CU} {/PIN}
+    {PIN:CD}
+      LD_BOOL   "imp"
+      AND       "S1"
+      ANDN      "prep"
+    {/PIN}
+    {PIN:R} {/PIN}
+    {PIN:LD} {/PIN}
+    {PIN:PV} "10" {/PIN}
+    {PINO:QU} {/PIN}
+    {PINO:QD} "min" {/PIN}
+    {PINO:CV} "h" {/PIN}
+  {/POU}
+  ST        "max"
+{/NETWORK}
+
+{NETWORK}
+(*
+
+*)
+  LD_BOOL   "min"
+  OR        "prep"
+  ANDN      "max"
+  ST        "prep"
+{/NETWORK}
+
+
+{/NOCODE}
+{ILCODE}
+(* Network 1 *)
+(* 27 *)    LD_BOOL   S1
+(* 28 *)    ANDN      imp
+(* 30 *)    ST        casovac.IN
+(* 29 *)    CAL casovac (PT:=T#1s)
+(* 33 *)    LD        casovac.ET
+(* 33 *)    ST        cas
+(* 32 *)    LD        casovac.Q
+(* 35 *)    ST        imp
+(* Network 2 *)
+(* 42 *)    LD_BOOL   imp
+(* 43 *)    AND       S1
+(* 44 *)    AND       prep
+{CREATE_TEMP=__Tmp_1}
+(* 45 *)    ST        __Tmp_1
+(* 48 *)    LD_BOOL   imp
+(* 49 *)    AND       S1
+(* 50 *)    ANDN      prep
+{CREATE_TEMP=__Tmp_2}
+(* 47 *)    ST        __Tmp_2
+(* 45 *)    CAL citac (CU:=__Tmp_1,CD:=__Tmp_2,R:=citac.R,LD:=citac.LD,PV:=10)
+(* 56 *)    LD        citac.QD
+(* 56 *)    ST        min
+(* 57 *)    LD        citac.CV
+(* 57 *)    ST        h
+(* 55 *)    LD        citac.QU
+(* 59 *)    ST        max
+(* Network 3 *)
+(* 66 *)    LD_BOOL   min
+(* 67 *)    OR        prep
+(* 68 *)    ANDN      max
+(* 69 *)    ST        prep
+END_PROGRAM
+{STCODE}
+
+{DEBUG_INFO=
+ 27:76:0 28:77:0 30:78:0 31:79:0 29:79:0 33:81:0 32:82:0 35:83:0 42:85:0
+ 43:86:0 44:87:0 48:90:0 49:91:0 50:92:0 46:95:1 47:95:2 52:95:0 53:95:0
+ 54:95:0 45:95:0 56:97:0 57:99:0 55:100:0 59:101:0 66:103:0 67:104:0 68:105:0
+ 69:106:0
+}

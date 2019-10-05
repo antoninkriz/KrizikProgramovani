@@ -1,0 +1,103 @@
+#srcfile 'H:\MOSAIC\TECOAPP\KRIZ\TRIVSTUPY\SYSGEN\HWCONFIG.ST'
+
+; Global types
+#struct  TAIStat
+  bool UNF,
+  bool UNR,
+  bool OVR,
+  bool OVF,
+  bool FLS,
+  bool CJC,
+  bool dummy6,
+  bool dummy7,
+  bool CHC,
+  bool dummy9,
+  bool dummy10,
+  bool dummy11,
+  bool dummy12,
+  bool dummy13,
+  bool dummy14,
+  bool dummy15
+#struct  TAI
+  TAIStat STAT,
+  int FS,
+  real ENG,
+  real PCT
+#struct  TBIN_8DI
+  bool DI0,
+  bool DI1,
+  bool DI2,
+  bool DI3,
+  bool DI4,
+  bool DI5,
+  bool DI6,
+  bool DI7
+#struct  TBIN_4DIP
+  bool DIP0,
+  bool DIP1,
+  bool DIP2,
+  bool DIP3
+#struct  TCNTF_IN
+  uint SCNT,
+  udint VALA,
+  udint VALB
+#struct  TCNTF_OUT
+  uint CCNT,
+  udint SET
+#struct  TBIN_6DO
+  bool DO0,
+  bool DO1,
+  bool DO2,
+  bool DO3,
+  bool DO4,
+  bool DO5
+#struct  TCHStatistic
+  usint STAT,
+  usint ERR,
+  udint trueMes,
+  udint falseMes
+#struct  TETHStatistic_BACnet
+  usint STAT,
+  usint ERR,
+  udint trueMes,
+  udint falseMes
+#struct  TCHControl
+  uint CONTROL
+
+; Global variables
+#def  r0_p0_Statistic_CH1 TCHStatistic %X7500
+#def  r0_p0_Control_CH1 TCHControl %Y7500
+
+; Global variables
+#def  r0_p2_Statistic_MI_CIB1 TCHStatistic %X0
+#def  r0_p2_Control_MI_CIB1 TCHControl %Y0
+
+; Global variables
+#def  r0_p3_DI TBIN_8DI %X10
+#def  r0_p3_DIP TBIN_4DIP %X11
+#def  r0_p3_CNT_IN1 TCNTF_IN %X12
+#def  r0_p3_CNT_IN2 TCNTF_IN %X22
+#def  r0_p3_AI0 TAI %X32
+#def  r0_p3_AI1 TAI %X44
+#def  r0_p3_AI2 TAI %X56
+#def  r0_p3_AI3 TAI %X68
+#def  r0_p3_DO TBIN_6DO %Y2
+#def  r0_p3_dummy usint %Y3
+#def  r0_p3_CNT_OUT1 TCNTF_OUT %Y4
+#def  r0_p3_CNT_OUT2 TCNTF_OUT %Y10
+#def  dva r0_p3_DO~DO2
+#def  jeden r0_p3_DO~DO1
+#def  tri r0_p3_DO~DO3
+#def  v1 r0_p3_DI~DI0
+#def  v2 r0_p3_DI~DI1
+#def  v3 r0_p3_DI~DI2
+#def  zadny r0_p3_DO~DO0
+
+; Global variables
+ 
+#srcfile 'H:\MOSAIC\TECOAPP\KRIZ\TRIVSTUPY\SYSGEN\HWCONFIG.ST'
+
+
+ 
+
+#srcfile ''

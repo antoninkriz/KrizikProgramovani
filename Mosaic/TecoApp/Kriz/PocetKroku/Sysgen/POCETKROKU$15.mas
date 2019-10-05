@@ -1,0 +1,22 @@
+#srcfile 'H:\MOSAIC\TECOAPP\KRIZ\POCETKROKU\POCETKROKU.MCF'
+ 
+#srcfile 'H:\MOSAIC\TECOAPP\KRIZ\POCETKROKU\POCETKROKU.MCF'
+
+; ***** RESOURCE - CPM
+#reg pocetkroku_p pocetkroku_i
+#srcline 4 ;    PROGRAM pocetkroku_i WITH FreeWheeling : pocetkroku_p ();
+P     0
+ LEA  pocetkroku_i
+ CAL  pocetkroku_p_L0
+E     0
+
+; Initialize - program
+P     58
+ LEA  pocetkroku_i
+ CAL  pocetkroku_p__InstanceInit__
+E     58
+
+
+ 
+
+#srcfile ''

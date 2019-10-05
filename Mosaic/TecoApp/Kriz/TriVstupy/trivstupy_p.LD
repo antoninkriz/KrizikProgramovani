@@ -1,0 +1,118 @@
+PROGRAM trivstupy_p
+{NOCODE}
+(*
+  Komentáø ke schématu
+*)
+
+{NETWORK}
+(*
+  Komentáø k obvodu
+*)
+  LDN_BOOL  "v1"
+  ANDN      "v2"
+  ANDN      "v3"
+  ST        "zadny"
+{/NETWORK}
+
+{NETWORK}
+(*
+
+*)
+  LD_BOOL   "v1"
+  AND       "v2"
+  AND       "v3"
+  ST        "tri"
+{/NETWORK}
+
+{NETWORK}
+(*
+
+*)
+  LD_BOOL   "v1"
+  AND       "v2"
+  ANDN      "v3"
+  OR(
+    LD_BOOL   "v2"
+    AND       "v3"
+    ANDN      "v1"
+  )
+  OR(
+    LD_BOOL   "v3"
+    AND       "v1"
+    ANDN      "v2"
+  )
+  ST        "dva"
+{/NETWORK}
+
+{NETWORK}
+(*
+
+*)
+  LD_BOOL   "v1"
+  ANDN      "v2"
+  ANDN      "v3"
+  OR(
+    LD_BOOL   "v2"
+    ANDN      "v3"
+    ANDN      "v1"
+  )
+  OR(
+    LD_BOOL   "v3"
+    ANDN      "v1"
+    ANDN      "v2"
+  )
+  ST        "jeden"
+{/NETWORK}
+
+
+{/NOCODE}
+{ILCODE}
+(* Network 1 *)
+(* 11 *)    LDN_BOOL  v1
+(* 12 *)    ANDN      v2
+(* 13 *)    ANDN      v3
+(* 14 *)    ST        zadny
+(* Network 2 *)
+(* 21 *)    LD_BOOL   v1
+(* 22 *)    AND       v2
+(* 23 *)    AND       v3
+(* 24 *)    ST        tri
+(* Network 3 *)
+(* 31 *)    LD_BOOL   v1
+(* 32 *)    AND       v2
+(* 33 *)    ANDN      v3
+(* 34 *)    OR(
+(* 35 *)      LD_BOOL   v2
+(* 36 *)      AND       v3
+(* 37 *)      ANDN      v1
+(* 38 *)    )
+(* 39 *)    OR(
+(* 40 *)      LD_BOOL   v3
+(* 41 *)      AND       v1
+(* 42 *)      ANDN      v2
+(* 43 *)    )
+(* 44 *)    ST        dva
+(* Network 4 *)
+(* 51 *)    LD_BOOL   v1
+(* 52 *)    ANDN      v2
+(* 53 *)    ANDN      v3
+(* 54 *)    OR(
+(* 55 *)      LD_BOOL   v2
+(* 56 *)      ANDN      v3
+(* 57 *)      ANDN      v1
+(* 58 *)    )
+(* 59 *)    OR(
+(* 60 *)      LD_BOOL   v3
+(* 61 *)      ANDN      v1
+(* 62 *)      ANDN      v2
+(* 63 *)    )
+(* 64 *)    ST        jeden
+END_PROGRAM
+{STCODE}
+
+{DEBUG_INFO=
+ 11:71:0 12:72:0 13:73:0 14:74:0 21:76:0 22:77:0 23:78:0 24:79:0 31:81:0
+ 32:82:0 33:83:0 35:85:0 36:86:0 37:87:0 38:88:0 40:90:0 41:91:0 42:92:0
+ 43:93:0 44:94:0 51:96:0 52:97:0 53:98:0 55:100:0 56:101:0 57:102:0 58:103:0
+ 60:105:0 61:106:0 62:107:0 63:108:0 64:109:0
+}

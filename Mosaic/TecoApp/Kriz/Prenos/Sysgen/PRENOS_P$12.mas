@@ -1,0 +1,46 @@
+#srcfile 'H:\MOSAIC\TECOAPP\KRIZ\PRENOS\PRENOS_P.LD'
+
+#defpou Prenos_p
+  bool __EDGE_R__0
+
+ 
+#srcfile 'H:\MOSAIC\TECOAPP\KRIZ\PRENOS\PRENOS_P.LD'
+#pou Prenos_p
+#srcline 1 ;PROGRAM Prenos_p
+P     61
+Prenos_p_L0:
+ LINK 0
+#srcline 43 ;(* 19 *)    LD_BOOL   v1
+ LD   bool v1
+#debug bool v1
+#srcline 44 ;(* 20 *)    ST        vy1
+ WR   bool vy1
+#debug_left bool vy1
+#srcline 45 ;(* Network 2 *)
+#srcline 46 ;(* 27 *)    LDN_BOOL  v2
+ LD   bool v2
+#debug bool v2
+ NEG
+#srcline 47 ;(* 28 *)    ST        vy2
+ WR   bool vy2
+#debug_left bool vy2
+#srcline 48 ;(* Network 3 *)
+#srcline 49 ;(* 35 *)    LD_EDGE   v1
+ LD   bool v1
+#debug bool v1
+ LETX __EDGE_R__0
+#debug_type bool
+#srcline 50 ;(* 36 *)    ST        vy3
+ WR   bool vy3
+#debug_left bool vy3
+#srcline 51 ;END_PROGRAM
+ ULNK
+RET
+E     61
+#endpou 
+
+
+
+ 
+
+#srcfile ''

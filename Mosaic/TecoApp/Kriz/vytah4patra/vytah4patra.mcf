@@ -1,0 +1,6 @@
+CONFIGURATION vytah4patra
+  RESOURCE CPM
+    TASK FreeWheeling(Number := 0);
+    PROGRAM vytah4patra_i WITH FreeWheeling : vytah4patra_p ();
+  END_RESOURCE
+END_CONFIGURATION

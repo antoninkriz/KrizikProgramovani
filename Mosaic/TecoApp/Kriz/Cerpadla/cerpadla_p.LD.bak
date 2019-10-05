@@ -1,0 +1,84 @@
+PROGRAM cerpadla_p
+  VAR_INPUT
+  END_VAR
+  VAR_OUTPUT
+  END_VAR
+  VAR
+  END_VAR
+  VAR_TEMP
+  END_VAR
+{NOCODE}
+(*
+  Komentáø ke schématu
+*)
+
+{NETWORK}
+(*
+  Komentáø k obvodu
+*)
+  LD_BOOL   "s1"
+  {POU:AND}
+    {PIN:IN1} {/PIN}
+    {PIN:/IN2} "c2" {/PIN}
+    {PIN:/IN3} "c3" {/PIN}
+    {PINO:Q} {/PIN}
+  {/POU}
+  ST        "c1"
+{/NETWORK}
+
+{NETWORK}
+(*
+
+*)
+  LD_BOOL   "s2"
+  {POU:AND}
+    {PIN:IN1} {/PIN}
+    {PIN:/IN2} "c1" {/PIN}
+    {PIN:/IN3} "c3" {/PIN}
+    {PINO:Q} {/PIN}
+  {/POU}
+  ST        "c2"
+{/NETWORK}
+
+{NETWORK}
+(*
+
+*)
+  LD_BOOL   "s3"
+  {POU:AND}
+    {PIN:IN1} {/PIN}
+    {PIN:/IN2} "c1" {/PIN}
+    {PIN:/IN3} "c2" {/PIN}
+    {PINO:Q} {/PIN}
+  {/POU}
+  ST        "c3"
+{/NETWORK}
+
+
+{/NOCODE}
+{ILCODE}
+(* Network 1 *)
+(* 19 *)    LD_BOOL   s1
+(* 22 *)    ANDN      c2
+(* 23 *)    ANDN      c3
+(* 24 *)    __CR_TEST
+(* 26 *)    ST        c1
+(* Network 2 *)
+(* 33 *)    LD_BOOL   s2
+(* 36 *)    ANDN      c1
+(* 37 *)    ANDN      c3
+(* 38 *)    __CR_TEST
+(* 40 *)    ST        c2
+(* Network 3 *)
+(* 47 *)    LD_BOOL   s3
+(* 50 *)    ANDN      c1
+(* 51 *)    ANDN      c2
+(* 52 *)    __CR_TEST
+(* 54 *)    ST        c3
+END_PROGRAM
+{STCODE}
+
+{DEBUG_INFO=
+ 19:61:0 22:62:0 23:63:0 24:64:0 26:65:0 33:67:0 36:68:0 37:69:0 38:70:0
+ 40:71:0 47:73:0 50:74:0 51:75:0 52:76:0 54:77:0
+}

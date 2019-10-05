@@ -1,0 +1,6 @@
+0;3;|0;|;|0;DI.DI0;START;
+0;3;|0;|;|0;DI.DI1;STOP;
+0;3;|0;|;|0;DI.DI2;polohaL;
+0;3;|0;|;|0;DI.DI3;polohaP;
+0;3;|0;|;|0;DO.DO0;pohybDoL;
+0;3;|0;|;|0;DO.DO1;pohybDoP;

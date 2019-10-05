@@ -1,0 +1,220 @@
+#srcfile 'H:\MOSAIC\TECOAPP\KRIZ\VYKONY4C\VYKONY4C_P.LD'
+
+#defpou vykony4c_p
+  int h1,
+  int h2,
+  int h3,
+  int h4,
+  int h,
+  bool __EDGE_R__0,
+  bool __EDGE_R__1,
+  bool __EDGE_R__2,
+  bool __EDGE_R__3
+
+ 
+#srcfile 'H:\MOSAIC\TECOAPP\KRIZ\VYKONY4C\VYKONY4C_P.LD'
+#pou vykony4c_p
+#srcline 1 ;PROGRAM vykony4c_p
+P     61
+vykony4c_p_L0:
+ LINK 0
+#srcline 151 ;(* 24 *)    LD_EDGE   s1
+ LD   bool s1
+#debug bool s1
+ LETX __EDGE_R__0
+#debug_type bool
+#srcline 152 ;(* 26 *)    JMPCN __PouSkip_25
+ JMC  vykony4c_p___POUSKIP_25
+#srcline 153 ;(* 25 *)    LD        1
+ LD   udint 1
+#srcline 154 ;(* 28 *)    ADD       0
+ LD   udint 0
+ ADD
+#srcline 155 ;(* 30 *)    ST        h1
+ WRX  h1
+#debug_left int h1
+#srcline 156 ;(* 29 *)    LD_bool true
+ LD   bool -1       ; true
+#srcline 157 ;(* 25 *)  __PouSkip_25:
+vykony4c_p___POUSKIP_25:
+#srcline 158 ;(* Network 2 *)
+#srcline 159 ;(* 38 *)    LDN_BOOL  s1
+ LD   bool s1
+#debug bool s1
+ NEG
+#srcline 160 ;(* 40 *)    JMPCN __PouSkip_39
+ JMC  vykony4c_p___POUSKIP_39
+#srcline 161 ;(* 39 *)    LD        0
+ LD   udint 0
+#srcline 162 ;(* 42 *)    ADD       0
+ LD   udint 0
+ ADD
+#srcline 163 ;(* 44 *)    ST        h1
+ WRX  h1
+#debug_left int h1
+#srcline 164 ;(* 43 *)    LD_bool true
+ LD   bool -1       ; true
+#srcline 165 ;(* 39 *)  __PouSkip_39:
+vykony4c_p___POUSKIP_39:
+#srcline 166 ;(* Network 3 *)
+#srcline 167 ;(* 52 *)    LD_EDGE   s2
+ LD   bool s2
+#debug bool s2
+ LETX __EDGE_R__1
+#debug_type bool
+#srcline 168 ;(* 54 *)    JMPCN __PouSkip_53
+ JMC  vykony4c_p___POUSKIP_53
+#srcline 169 ;(* 53 *)    LD        4
+ LD   udint 4
+#srcline 170 ;(* 56 *)    ADD       0
+ LD   udint 0
+ ADD
+#srcline 171 ;(* 58 *)    ST        h2
+ WRX  h2
+#debug_left int h2
+#srcline 172 ;(* 57 *)    LD_bool true
+ LD   bool -1       ; true
+#srcline 173 ;(* 53 *)  __PouSkip_53:
+vykony4c_p___POUSKIP_53:
+#srcline 174 ;(* Network 4 *)
+#srcline 175 ;(* 66 *)    LDN_BOOL  s2
+ LD   bool s2
+#debug bool s2
+ NEG
+#srcline 176 ;(* 68 *)    JMPCN __PouSkip_67
+ JMC  vykony4c_p___POUSKIP_67
+#srcline 177 ;(* 67 *)    LD        0
+ LD   udint 0
+#srcline 178 ;(* 70 *)    ADD       0
+ LD   udint 0
+ ADD
+#srcline 179 ;(* 72 *)    ST        h2
+ WRX  h2
+#debug_left int h2
+#srcline 180 ;(* 71 *)    LD_bool true
+ LD   bool -1       ; true
+#srcline 181 ;(* 67 *)  __PouSkip_67:
+vykony4c_p___POUSKIP_67:
+#srcline 182 ;(* Network 5 *)
+#srcline 183 ;(* 80 *)    LD_EDGE   s3
+ LD   bool s3
+#debug bool s3
+ LETX __EDGE_R__2
+#debug_type bool
+#srcline 184 ;(* 82 *)    JMPCN __PouSkip_81
+ JMC  vykony4c_p___POUSKIP_81
+#srcline 185 ;(* 81 *)    LD        7
+ LD   udint 7
+#srcline 186 ;(* 84 *)    ADD       0
+ LD   udint 0
+ ADD
+#srcline 187 ;(* 86 *)    ST        h3
+ WRX  h3
+#debug_left int h3
+#srcline 188 ;(* 85 *)    LD_bool true
+ LD   bool -1       ; true
+#srcline 189 ;(* 81 *)  __PouSkip_81:
+vykony4c_p___POUSKIP_81:
+#srcline 190 ;(* Network 6 *)
+#srcline 191 ;(* 94 *)    LDN_BOOL  s3
+ LD   bool s3
+#debug bool s3
+ NEG
+#srcline 192 ;(* 96 *)    JMPCN __PouSkip_95
+ JMC  vykony4c_p___POUSKIP_95
+#srcline 193 ;(* 95 *)    LD        0
+ LD   udint 0
+#srcline 194 ;(* 98 *)    ADD       0
+ LD   udint 0
+ ADD
+#srcline 195 ;(* 100 *)    ST        h3
+ WRX  h3
+#debug_left int h3
+#srcline 196 ;(* 99 *)    LD_bool true
+ LD   bool -1       ; true
+#srcline 197 ;(* 95 *)  __PouSkip_95:
+vykony4c_p___POUSKIP_95:
+#srcline 198 ;(* Network 7 *)
+#srcline 199 ;(* 108 *)    LD_EDGE   s4
+ LD   bool s4
+#debug bool s4
+ LETX __EDGE_R__3
+#debug_type bool
+#srcline 200 ;(* 110 *)    JMPCN __PouSkip_109
+ JMC  vykony4c_p___POUSKIP_109
+#srcline 201 ;(* 109 *)    LD        9
+ LD   udint 9
+#srcline 202 ;(* 112 *)    ADD       0
+ LD   udint 0
+ ADD
+#srcline 203 ;(* 114 *)    ST        h4
+ WRX  h4
+#debug_left int h4
+#srcline 204 ;(* 113 *)    LD_bool true
+ LD   bool -1       ; true
+#srcline 205 ;(* 109 *)  __PouSkip_109:
+vykony4c_p___POUSKIP_109:
+#srcline 206 ;(* Network 8 *)
+#srcline 207 ;(* 122 *)    LDN_BOOL  s4
+ LD   bool s4
+#debug bool s4
+ NEG
+#srcline 208 ;(* 124 *)    JMPCN __PouSkip_123
+ JMC  vykony4c_p___POUSKIP_123
+#srcline 209 ;(* 123 *)    LD        0
+ LD   udint 0
+#srcline 210 ;(* 126 *)    ADD       0
+ LD   udint 0
+ ADD
+#srcline 211 ;(* 128 *)    ST        h4
+ WRX  h4
+#debug_left int h4
+#srcline 212 ;(* 127 *)    LD_bool true
+ LD   bool -1       ; true
+#srcline 213 ;(* 123 *)  __PouSkip_123:
+vykony4c_p___POUSKIP_123:
+#srcline 214 ;(* Network 9 *)
+#srcline 215 ;(* 137 *)    LD_bool true
+ LD   bool -1       ; true
+#srcline 216 ;(* 137 *)    JMPCN __PouSkip_136
+ JMC  vykony4c_p___POUSKIP_136
+#srcline 217 ;(* 136 *)    LD        h1
+ LDX  h1
+#debug int h1
+ EXTW 
+#srcline 218 ;(* 139 *)    ADD       h2
+ LDX  h2
+#debug int h2
+ EXTW 
+ ADD
+ EXTW
+#srcline 219 ;(* 140 *)    ADD       h3
+ LDX  h3
+#debug int h3
+ EXTW 
+ ADD
+ EXTW
+#srcline 220 ;(* 141 *)    ADD       h4
+ LDX  h4
+#debug int h4
+ EXTW 
+ ADD
+ EXTW
+#srcline 221 ;(* 143 *)    ST        h
+ WRX  h
+#debug_left int h
+#srcline 222 ;(* 142 *)    LD_bool true
+ LD   bool -1       ; true
+#srcline 223 ;(* 136 *)  __PouSkip_136:
+vykony4c_p___POUSKIP_136:
+#srcline 224 ;END_PROGRAM
+ ULNK
+RET
+E     61
+#endpou 
+
+
+
+ 
+
+#srcfile ''

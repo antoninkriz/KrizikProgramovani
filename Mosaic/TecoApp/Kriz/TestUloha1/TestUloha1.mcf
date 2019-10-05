@@ -1,0 +1,6 @@
+CONFIGURATION TestUloha1
+  RESOURCE CPM
+    TASK FreeWheeling(Number := 0);
+    PROGRAM testuloha1_i WITH FreeWheeling : testuloha1_p ();
+  END_RESOURCE
+END_CONFIGURATION

@@ -1,0 +1,162 @@
+#srcfile 'H:\MOSAIC\TECOAPP\KRIZ\TRIVSTUPY\TRIVSTUPY_P.LD'
+
+#defpou trivstupy_p
+  byte dummy
+
+ 
+#srcfile 'H:\MOSAIC\TECOAPP\KRIZ\TRIVSTUPY\TRIVSTUPY_P.LD'
+#pou trivstupy_p
+#srcline 1 ;PROGRAM trivstupy_p
+P     61
+trivstupy_p_L0:
+ LINK 0
+#srcline 71 ;(* 11 *)    LDN_BOOL  v1
+ LD   bool v1
+#debug bool v1
+ NEG
+#srcline 72 ;(* 12 *)    ORN       v2
+ LD   bool v2
+#debug bool v2
+ NEG
+ OR
+#srcline 73 ;(* 13 *)    ORN       v3
+ LD   bool v3
+#debug bool v3
+ NEG
+ OR
+#srcline 74 ;(* 14 *)    ST        zadny
+ WR   bool zadny
+#debug_left bool zadny
+#srcline 75 ;(* Network 2 *)
+#srcline 76 ;(* 21 *)    LD_BOOL   v1
+ LD   bool v1
+#debug bool v1
+#srcline 77 ;(* 22 *)    AND       v2
+ LD   bool v2
+#debug bool v2
+ AND
+#srcline 78 ;(* 23 *)    AND       v3
+ LD   bool v3
+#debug bool v3
+ AND
+#srcline 79 ;(* 24 *)    ST        tri
+ WR   bool tri
+#debug_left bool tri
+#srcline 80 ;(* Network 3 *)
+#srcline 81 ;(* 31 *)    LD_BOOL   v1
+ LD   bool v1
+#debug bool v1
+#srcline 82 ;(* 32 *)    AND       v2
+ LD   bool v2
+#debug bool v2
+ AND
+#srcline 83 ;(* 33 *)    ANDN      v3
+ LD   bool v3
+#debug bool v3
+ NEG
+ AND
+#srcline 84 ;(* 34 *)    OR(
+ PSHL
+#srcline 85 ;(* 35 *)      LD_BOOL   v2
+ LD   bool v2
+#debug bool v2
+#srcline 86 ;(* 36 *)      AND       v3
+ LD   bool v3
+#debug bool v3
+ AND
+#srcline 87 ;(* 37 *)      ANDN      v1
+ LD   bool v1
+#debug bool v1
+ NEG
+ AND
+#srcline 88 ;(* 38 *)    )
+ POPL
+#debug_type bool
+ OR
+#srcline 89 ;(* 39 *)    OR(
+ PSHL
+#srcline 90 ;(* 40 *)      LD_BOOL   v3
+ LD   bool v3
+#debug bool v3
+#srcline 91 ;(* 41 *)      AND       v1
+ LD   bool v1
+#debug bool v1
+ AND
+#srcline 92 ;(* 42 *)      ANDN      v2
+ LD   bool v2
+#debug bool v2
+ NEG
+ AND
+#srcline 93 ;(* 43 *)    )
+ POPL
+#debug_type bool
+ OR
+#srcline 94 ;(* 44 *)    ST        dva
+ WR   bool dva
+#debug_left bool dva
+#srcline 95 ;(* Network 4 *)
+#srcline 96 ;(* 51 *)    LD_BOOL   v1
+ LD   bool v1
+#debug bool v1
+#srcline 97 ;(* 52 *)    ANDN      v2
+ LD   bool v2
+#debug bool v2
+ NEG
+ AND
+#srcline 98 ;(* 53 *)    ANDN      v3
+ LD   bool v3
+#debug bool v3
+ NEG
+ AND
+#srcline 99 ;(* 54 *)    OR(
+ PSHL
+#srcline 100 ;(* 55 *)      LD_BOOL   v2
+ LD   bool v2
+#debug bool v2
+#srcline 101 ;(* 56 *)      ANDN      v3
+ LD   bool v3
+#debug bool v3
+ NEG
+ AND
+#srcline 102 ;(* 57 *)      ANDN      v1
+ LD   bool v1
+#debug bool v1
+ NEG
+ AND
+#srcline 103 ;(* 58 *)    )
+ POPL
+#debug_type bool
+ OR
+#srcline 104 ;(* 59 *)    OR(
+ PSHL
+#srcline 105 ;(* 60 *)      LD_BOOL   v3
+ LD   bool v3
+#debug bool v3
+#srcline 106 ;(* 61 *)      ANDN      v1
+ LD   bool v1
+#debug bool v1
+ NEG
+ AND
+#srcline 107 ;(* 62 *)      ANDN      v2
+ LD   bool v2
+#debug bool v2
+ NEG
+ AND
+#srcline 108 ;(* 63 *)    )
+ POPL
+#debug_type bool
+ OR
+#srcline 109 ;(* 64 *)    ST        jeden
+ WR   bool jeden
+#debug_left bool jeden
+#srcline 110 ;END_PROGRAM
+ ULNK
+RET
+E     61
+#endpou 
+
+
+
+ 
+
+#srcfile ''

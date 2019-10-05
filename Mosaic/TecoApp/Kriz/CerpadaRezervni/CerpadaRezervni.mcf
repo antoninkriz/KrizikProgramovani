@@ -1,0 +1,6 @@
+CONFIGURATION CerpadaRezervni
+  RESOURCE CPM
+    TASK FreeWheeling(Number := 0);
+    PROGRAM cerpadlarezervni_i WITH FreeWheeling : cerpadlarezervni_p ();
+  END_RESOURCE
+END_CONFIGURATION

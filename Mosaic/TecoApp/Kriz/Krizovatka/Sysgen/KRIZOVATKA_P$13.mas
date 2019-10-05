@@ -1,0 +1,190 @@
+#srcfile 'H:\MOSAIC\TECOAPP\KRIZ\KRIZOVATKA\KRIZOVATKA_P.LD'
+
+#defpou krizovatka_p
+  bool blikani,
+  TON generator,
+  TOF zpozdovac,
+  bool prepinani,
+  TON generator2,
+  TOF zpozdovac2,
+  time casB2,
+  time casB1,
+  time casA1,
+  time casA2,
+  bool prepinac,
+  TOF zpozdovac3,
+  time casC1
+
+ 
+#srcfile 'H:\MOSAIC\TECOAPP\KRIZ\KRIZOVATKA\KRIZOVATKA_P.LD'
+#pou krizovatka_p
+#srcline 1 ;PROGRAM krizovatka_p
+P     61
+krizovatka_p_L0:
+ LINK 0
+#srcline 105 ;(* 32 *)    LD_BOOL   S1
+ LD   bool S1
+#debug bool S1
+#srcline 106 ;(* 33 *)    ST        CAB
+ WR   bool CAB
+#debug_left bool CAB
+#srcline 107 ;(* 34 *)    ST        CCD
+ WR   bool CCD
+#debug_left bool CCD
+#srcline 108 ;(* Network 2 *)
+#srcline 109 ;(* 41 *)    LD_BOOL   S2
+ LD   bool S2
+#debug bool S2
+#srcline 110 ;(* 42 *)    ANDN      blikani
+ LDX  blikani
+#debug bool blikani
+ NEG
+ AND
+#srcline 111 ;(* 44 *)    ST        generator.IN
+ WRX  generator~IN
+#debug_left bool generator.IN
+#srcline 112 ;(* 43 *)    CAL generator (PT:=T#1s)
+ LD   time 1000
+ WRX  generator~PT
+#debug_left time generator~PT
+ LEAX generator
+ CAL  TON_L0
+#srcline 113 ;(* 47 *)    LD        generator.ET
+ LDX  generator~ET
+#debug time generator.ET
+#srcline 114 ;(* 47 *)    ST        casA1
+ WRX  casA1
+#debug_left time casA1
+#srcline 115 ;(* 46 *)    LD        generator.Q
+ LDX  generator~Q
+#debug bool generator.Q
+#srcline 116 ;(* 49 *)    ST        blikani
+ WRX  blikani
+#debug_left bool blikani
+#srcline 117 ;(* 51 *)    ST        zpozdovac.IN
+ WRX  zpozdovac~IN
+#debug_left bool zpozdovac.IN
+#srcline 118 ;(* 50 *)    CAL zpozdovac (PT:=T#0.5s)
+ LD   time 500
+ WRX  zpozdovac~PT
+#debug_left time zpozdovac~PT
+ LEAX zpozdovac
+ CAL  TOF_L0
+#srcline 119 ;(* 54 *)    LD        zpozdovac.ET
+ LDX  zpozdovac~ET
+#debug time zpozdovac.ET
+#srcline 120 ;(* 54 *)    ST        casA2
+ WRX  casA2
+#debug_left time casA2
+#srcline 121 ;(* 53 *)    LD        zpozdovac.Q
+ LDX  zpozdovac~Q
+#debug bool zpozdovac.Q
+#srcline 122 ;(* 56 *)    ST        OOBA
+ WR   bool OOBA
+#debug_left bool OOBA
+#srcline 123 ;(* Network 3 *)
+#srcline 124 ;(* 63 *)    LD_BOOL   S3
+ LD   bool S3
+#debug bool S3
+#srcline 125 ;(* 64 *)    ANDN      prepinani
+ LDX  prepinani
+#debug bool prepinani
+ NEG
+ AND
+#srcline 126 ;(* 66 *)    ST        generator2.IN
+ WRX  generator2~IN
+#debug_left bool generator2.IN
+#srcline 127 ;(* 65 *)    CAL generator2 (PT:=T#10s)
+ LD   time 10000
+ WRX  generator2~PT
+#debug_left time generator2~PT
+ LEAX generator2
+ CAL  TON_L0
+#srcline 128 ;(* 69 *)    LD        generator2.ET
+ LDX  generator2~ET
+#debug time generator2.ET
+#srcline 129 ;(* 69 *)    ST        casB1
+ WRX  casB1
+#debug_left time casB1
+#srcline 130 ;(* 68 *)    LD        generator2.Q
+ LDX  generator2~Q
+#debug bool generator2.Q
+#srcline 131 ;(* 71 *)    ST        prepinani
+ WRX  prepinani
+#debug_left bool prepinani
+#srcline 132 ;(* 73 *)    ST        zpozdovac2.IN
+ WRX  zpozdovac2~IN
+#debug_left bool zpozdovac2.IN
+#srcline 133 ;(* 72 *)    CAL zpozdovac2 (PT:=T#5s)
+ LD   time 5000
+ WRX  zpozdovac2~PT
+#debug_left time zpozdovac2~PT
+ LEAX zpozdovac2
+ CAL  TOF_L0
+#srcline 134 ;(* 76 *)    LD        zpozdovac2.ET
+ LDX  zpozdovac2~ET
+#debug time zpozdovac2.ET
+#srcline 135 ;(* 76 *)    ST        casB2
+ WRX  casB2
+#debug_left time casB2
+#srcline 136 ;(* 75 *)    LD        zpozdovac2.Q
+ LDX  zpozdovac2~Q
+#debug bool zpozdovac2.Q
+#srcline 137 ;(* 78 *)    ST        prepinac
+ WRX  prepinac
+#debug_left bool prepinac
+#srcline 138 ;(* Network 4 *)
+#srcline 139 ;(* 85 *)    LD_BOOL   S3
+ LD   bool S3
+#debug bool S3
+#srcline 140 ;(* 86 *)    AND       prepinac
+ LDX  prepinac
+#debug bool prepinac
+ AND
+#srcline 141 ;(* 87 *)    ST        ZAB
+ WR   bool ZAB
+#debug_left bool ZAB
+#srcline 142 ;(* 88 *)    ST        CCD
+ WR   bool CCD
+#debug_left bool CCD
+#srcline 143 ;(* Network 5 *)
+#srcline 144 ;(* 95 *)    LD_BOOL   S3
+ LD   bool S3
+#debug bool S3
+#srcline 145 ;(* 96 *)    ANDN      prepinac
+ LDX  prepinac
+#debug bool prepinac
+ NEG
+ AND
+#srcline 146 ;(* 97 *)    ST        ZCD
+ WR   bool ZCD
+#debug_left bool ZCD
+#srcline 147 ;(* 98 *)    ST        CAB
+ WR   bool CAB
+#debug_left bool CAB
+#srcline 148 ;END_PROGRAM
+ ULNK
+RET
+E     61
+
+; Initialize - variables
+P     61
+krizovatka_p__InstanceInit__:
+ LINK 0
+ LEAX zpozdovac
+ CAL  TOF__InstanceInit__
+ LEAX zpozdovac2
+ CAL  TOF__InstanceInit__
+ LEAX zpozdovac3
+ CAL  TOF__InstanceInit__
+ ULNK
+RET
+E     61
+; End initialize - variables
+#endpou 
+
+
+
+ 
+
+#srcfile ''

@@ -1,0 +1,6 @@
+CONFIGURATION SvetlaAuto
+  RESOURCE CPM
+    TASK FreeWheeling(Number := 0);
+    PROGRAM svetlaauto_i WITH FreeWheeling : svetlaauto_p ();
+  END_RESOURCE
+END_CONFIGURATION

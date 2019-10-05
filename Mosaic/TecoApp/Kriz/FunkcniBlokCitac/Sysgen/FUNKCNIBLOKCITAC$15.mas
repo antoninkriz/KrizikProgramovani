@@ -1,0 +1,17 @@
+#srcfile 'H:\MOSAIC\TECOAPP\KRIZ\FUNKCNIBLOKCITAC\FUNKCNIBLOKCITAC.MCF'
+ 
+#srcfile 'H:\MOSAIC\TECOAPP\KRIZ\FUNKCNIBLOKCITAC\FUNKCNIBLOKCITAC.MCF'
+
+; ***** RESOURCE - CPM
+#reg funkcniblokcitac_p funkcniblokcitac_i
+#srcline 4 ;    PROGRAM funkcniblokcitac_i WITH FreeWheeling : funkcniblokcitac_p ();
+P     0
+ LEA  funkcniblokcitac_i
+ CAL  funkcniblokcitac_p_L0
+E     0
+
+
+
+ 
+
+#srcfile ''

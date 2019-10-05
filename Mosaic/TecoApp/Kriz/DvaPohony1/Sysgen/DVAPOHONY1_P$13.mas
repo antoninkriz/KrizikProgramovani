@@ -1,0 +1,95 @@
+#srcfile 'H:\MOSAIC\TECOAPP\KRIZ\DVAPOHONY1\DVAPOHONY1_P.LD'
+
+#defpou dvapohony1_p
+  bool beh,
+  TON casovac,
+  bool casBezi
+
+ 
+#srcfile 'H:\MOSAIC\TECOAPP\KRIZ\DVAPOHONY1\DVAPOHONY1_P.LD'
+#pou dvapohony1_p
+#srcline 1 ;PROGRAM dvapohony1_p
+P     61
+dvapohony1_p_L0:
+ LINK 0
+#srcline 61 ;(* 22 *)    LD_BOOL   START
+ LD   bool START
+#debug bool START
+#srcline 62 ;(* 23 *)    AND       DI0
+ LD   bool DI0
+#debug bool DI0
+ AND
+#srcline 63 ;(* 24 *)    AND       DI2
+ LD   bool DI2
+#debug bool DI2
+ AND
+#srcline 64 ;(* 25 *)    OR        beh
+ LDX  beh
+#debug bool beh
+ OR
+#srcline 65 ;(* 26 *)    ANDN      STOP
+ LD   bool STOP
+#debug bool STOP
+ NEG
+ AND
+#srcline 66 ;(* 27 *)    ST        beh
+ WRX  beh
+#debug_left bool beh
+#srcline 67 ;(* Network 2 *)
+#srcline 68 ;(* 34 *)    LD_BOOL   beh
+ LDX  beh
+#debug bool beh
+#srcline 69 ;(* 35 *)    ANDN      casBezi
+ LDX  casBezi
+#debug bool casBezi
+ NEG
+ AND
+#srcline 70 ;(* 36 *)    ST        DO0
+ WR   bool DO0
+#debug_left bool DO0
+#srcline 71 ;(* 37 *)    AND       DI1
+ LD   bool DI1
+#debug bool DI1
+ AND
+#srcline 72 ;(* 38 *)    ANDN      STOP
+ LD   bool STOP
+#debug bool STOP
+ NEG
+ AND
+#srcline 73 ;(* 39 *)    ST        DO1
+ WR   bool DO1
+#debug_left bool DO1
+#srcline 74 ;(* Network 3 *)
+#srcline 75 ;(* 46 *)    LD_BOOL   DI1
+ LD   bool DI1
+#debug bool DI1
+#srcline 76 ;(* 47 *)    AND       DI3
+ LD   bool DI3
+#debug bool DI3
+ AND
+#srcline 77 ;(* 49 *)    ST        casovac.IN
+ WRX  casovac~IN
+#debug_left bool casovac.IN
+#srcline 78 ;(* 48 *)    CAL casovac (PT:=T#5s)
+ LD   time 5000
+ WRX  casovac~PT
+#debug_left time casovac~PT
+ LEAX casovac
+ CAL  TON_L0
+#srcline 79 ;(* 51 *)    LD        casovac.Q
+ LDX  casovac~Q
+#debug bool casovac.Q
+#srcline 80 ;(* 54 *)    ST        casBezi
+ WRX  casBezi
+#debug_left bool casBezi
+#srcline 81 ;END_PROGRAM
+ ULNK
+RET
+E     61
+#endpou 
+
+
+
+ 
+
+#srcfile ''

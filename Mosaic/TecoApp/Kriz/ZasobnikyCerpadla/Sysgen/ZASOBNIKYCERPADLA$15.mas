@@ -1,0 +1,17 @@
+#srcfile 'H:\MOSAIC\TECOAPP\KRIZ\ZASOBNIKYCERPADLA\ZASOBNIKYCERPADLA.MCF'
+ 
+#srcfile 'H:\MOSAIC\TECOAPP\KRIZ\ZASOBNIKYCERPADLA\ZASOBNIKYCERPADLA.MCF'
+
+; ***** RESOURCE - CPM
+#reg zasobnikycerpadla_p zasobnikycerpadla_i
+#srcline 4 ;    PROGRAM zasobnikycerpadla_i WITH FreeWheeling : zasobnikycerpadla_p ();
+P     0
+ LEA  zasobnikycerpadla_i
+ CAL  zasobnikycerpadla_p_L0
+E     0
+
+
+
+ 
+
+#srcfile ''

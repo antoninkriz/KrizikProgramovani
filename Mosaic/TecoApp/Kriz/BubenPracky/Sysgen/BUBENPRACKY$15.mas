@@ -1,0 +1,17 @@
+#srcfile 'H:\MOSAIC\TECOAPP\KRIZ\BUBENPRACKY\BUBENPRACKY.MCF'
+ 
+#srcfile 'H:\MOSAIC\TECOAPP\KRIZ\BUBENPRACKY\BUBENPRACKY.MCF'
+
+; ***** RESOURCE - CPM
+#reg bubenpracky_p bubenpracky_i
+#srcline 4 ;    PROGRAM bubenpracky_i WITH FreeWheeling : bubenpracky_p ();
+P     0
+ LEA  bubenpracky_i
+ CAL  bubenpracky_p_L0
+E     0
+
+
+
+ 
+
+#srcfile ''

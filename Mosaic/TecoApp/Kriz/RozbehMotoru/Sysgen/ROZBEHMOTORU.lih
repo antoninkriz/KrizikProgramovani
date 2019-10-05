@@ -1,0 +1,307 @@
+{LIBFILE="LOCALLIB\STDLIB_V20_20100519.MLB"}
+(* Knihovna vývojového systému Mosaic *)
+(* Jméno souboru : c:\Program Files\Common Files\Mosaic\Lib\StdLib_V20_20100519.mlb *)
+(* Knihovna : StdLib 2.0 *)
+(* Autor : Teco a.s. *)
+(* Autorská práva : (c) 2006-2010 Teco a.s. *)
+(* Verze IEC pøekladaèe : 3.8.6.0 *)
+(* Verze assembleru : 4.3.00 *)
+
+//{Knihovna : StdLib 2.0  }
+(* Historie: *)
+(*
+v1.0 30.06.2004 Nem  Uvodni verze knihovny
+                     Bloky : R_TRIG, F_TRIG, SR, RS, TON, TOF, CTU, CTD, TP
+v1.1 09.08.2004	Nem  Oprava bloku TOF
+v1.2 06.09.2004	Nem  Upraveny komentare funkcnich bloku v knihovne
+v1.3 16.05.2005	Nem  Osetren stav casovacu TON/TOF/TP po restartu
+                     v pripade, ze jsou casovace cele v rem zone
+v1.4            Nem  vynechana
+v1.5 01.11.2005	Nem  Upraveny casovace TON/TOF/TP tak, aby skutecne 
+                     fungovaly rem zone i pri teplem restartu
+                     Funkcni bloky R_TRIG, F_TRIG, SR a RS prepsany do asm
+v1.6 07.11.2005	Nem  Doplneny funkce ADD_TIME, SUB_TIME, ADD_TOD_TIME, 
+                     ADD_DT_TIME, SUB_DATE_DATE, SUB_TOD_TIME, SUB_TOD_TOD, 
+                     SUB_DT_TIME, SUB_DT_DT a CONCAT_DATE_TOD
+v1.7 17.03.2006	Nem  Oprava masky u TON/TOF/PT
+                     Oprava funkce SUB_DT_DT
+v1.8 04.04.2006	Nem  Zkraceny komentare u TON, .... kvuli FBD
+v1.9 29.09.2008	Nem  Opraven funkcni blok TOF po zapnuti (casovac cely prepracovan)
+v2.0 25.02.2009	Nem  Do funkcniho bloku TP doplnena kontrola predvolby
+                     (je-li predvolba nula, casovac negeneruje zadny pulz)
+     19.05.2010	Nem  Doplneny komentare v cestine (pro Mosaic od v2.0.23)
+     27.10.2010 Nem  Doplnena historie verzi v anglictine
+*)
+
+(*----------------------------------------------------------------------------*)
+
+__DECL FUNCTION_BLOCK R_TRIG
+(*
+  Blok pro vyhodnocení nábìžné hrany
+*)
+  VAR_INPUT
+    CLK              : bool;
+  END_VAR
+  VAR_OUTPUT
+    Q                : bool;
+  END_VAR
+  VAR
+    M                : bool;
+  END_VAR
+END_FUNCTION_BLOCK
+
+__DECL FUNCTION_BLOCK F_TRIG
+(*
+  Blok pro vyhodnocení sestupné hrany
+*)
+  VAR_INPUT
+    CLK              : bool;
+  END_VAR
+  VAR_OUTPUT
+    Q                : bool;
+  END_VAR
+  VAR
+    M                : bool := TRUE;
+  END_VAR
+END_FUNCTION_BLOCK
+
+__DECL FUNCTION_BLOCK SR
+(*
+  RS klopný obvod (s dominantní funkcí Set)
+*)
+  VAR_INPUT
+    S1               : bool;
+    R                : bool;
+  END_VAR
+  VAR_OUTPUT
+    Q1               : bool;
+  END_VAR
+END_FUNCTION_BLOCK
+
+__DECL FUNCTION_BLOCK RS
+(*
+  RS klopný obvod (s dominantní funkcí Reset)
+*)
+  VAR_INPUT
+    S                : bool;
+    R1               : bool;
+  END_VAR
+  VAR_OUTPUT
+    Q1               : bool;
+  END_VAR
+END_FUNCTION_BLOCK
+
+__DECL FUNCTION_BLOCK CTU
+(*
+  Èítac nahoru
+*)
+  VAR_INPUT
+    CU               : bool R_EDGE;  (* vstup pro èítání nahoru*)
+    R                : bool;  (* reset èítaèe*)
+    PV               : int;  (* pøedvolba èítaèe*)
+  END_VAR
+  VAR_OUTPUT
+    Q                : bool;  (* výstup èítaèe*)
+    CV               : int;  (* hodnota èítaèe*)
+  END_VAR
+END_FUNCTION_BLOCK
+
+__DECL FUNCTION_BLOCK CTD
+(*
+  Èítac dolù
+*)
+  VAR_INPUT
+    CD               : bool R_EDGE;  (* vstup pro èítání dolù*)
+    LD               : bool;  (* vstup pro nastavení pøedvolby*)
+    PV               : int;  (* pøedvolba èítaèe*)
+  END_VAR
+  VAR_OUTPUT
+    Q                : bool;  (* výstup èítaèe*)
+    CV               : int;  (* hodnota èítaèe*)
+  END_VAR
+END_FUNCTION_BLOCK
+
+__DECL FUNCTION_BLOCK CTUD
+(*
+  Obousmìrný èítac
+*)
+  VAR_INPUT
+    CU               : bool R_EDGE;  (* vstup pro èítání nahoru*)
+    CD               : bool R_EDGE;  (* vstup pro èítání dolù*)
+    R                : bool;  (* reset èítaèe*)
+    LD               : bool;  (* vstup pro nastavení pøedvolby*)
+    PV               : int;  (* pøedvolba èítaèe*)
+  END_VAR
+  VAR_OUTPUT
+    QU               : bool;  (* výstup èítaèe nahoru*)
+    QD               : bool;  (* výstup èítaèe dolù*)
+    CV               : int;  (* hodnota èítaèe*)
+  END_VAR
+END_FUNCTION_BLOCK
+
+__DECL FUNCTION_BLOCK TON
+(*
+  Èasovaè TON (zpoždìní nábìžné hrany)
+*)
+  VAR_INPUT
+    IN               : bool;  (* vstup èasovaèe*)
+    PT               : time;  (* pøedvolba èasovaèe*)
+  END_VAR
+  VAR_OUTPUT
+    Q                : bool;  (* výstup èasovaèe*)
+    ET               : time;  (* aktuální hodnota èasovaèe*)
+  END_VAR
+  VAR
+    IN_r_edge        : R_TRIG;
+    LT               : time;  (* last tick value ( 1ms resolution)*)
+  END_VAR
+END_FUNCTION_BLOCK
+
+__DECL FUNCTION_BLOCK TOF
+(*
+  Èasovaè TOF (zpoždìní sestupné hrany)
+*)
+  VAR_INPUT
+    IN               : bool;  (*  vstup èasovaèe*)
+    PT               : time;  (*  pøedvolba èasovaèe*)
+  END_VAR
+  VAR_OUTPUT
+    Q                : bool;  (*  výstup èasovaèe*)
+    ET               : time;  (*  aktuální hodnota èasovaèe*)
+  END_VAR
+  VAR
+    IN_f_edge        : F_TRIG;
+    LT               : time;  (*  last tick value ( 1ms resolution)*)
+  END_VAR
+END_FUNCTION_BLOCK
+
+__DECL FUNCTION_BLOCK TP
+(*
+  Èasovaè TP (generuje pulz dané šíøky)
+*)
+  VAR_INPUT
+    IN               : bool;  (* vstup èasovaèe*)
+    PT               : time;  (* pøedvolba èasovaèe*)
+  END_VAR
+  VAR_OUTPUT
+    Q                : bool;  (* výstup èasovaèe*)
+    ET               : time;  (* aktuální hodnota èasovaèe*)
+  END_VAR
+  VAR
+    IN_r_edge        : R_TRIG;
+    LT               : time;  (* last tick value ( 1ms resolution)*)
+  END_VAR
+END_FUNCTION_BLOCK
+
+__DECL FUNCTION ADD_TIME : time
+(*------------------------------------------------------------------------------
+  TIME := TIME + TIME;
+
+*)
+  VAR_INPUT
+    IN1              : time;
+    IN2              : time;
+  END_VAR
+END_FUNCTION
+
+__DECL FUNCTION SUB_TIME : time
+(*------------------------------------------------------------------------------
+  TIME := TIME - TIME;
+
+*)
+  VAR_INPUT
+    IN1              : time;
+    IN2              : time;
+  END_VAR
+END_FUNCTION
+
+__DECL FUNCTION ADD_TOD_TIME : tod
+(*------------------------------------------------------------------------------
+  TIME_OF_DAY := TIME_OF_DAY + TIME;
+
+*)
+  VAR_INPUT
+    IN1              : tod;
+    IN2              : time;
+  END_VAR
+END_FUNCTION
+
+__DECL FUNCTION ADD_DT_TIME : dt
+(*------------------------------------------------------------------------------
+  DATE_AND_TIME := DATE_AND_TIME + TIME;
+
+*)
+  VAR_INPUT
+    IN1              : dt;
+    IN2              : time;
+  END_VAR
+END_FUNCTION
+
+__DECL FUNCTION SUB_DATE_DATE : time
+(*------------------------------------------------------------------------------
+  TIME := DATE - DATE;
+
+*)
+  VAR_INPUT
+    IN1              : date;
+    IN2              : date;
+  END_VAR
+END_FUNCTION
+
+__DECL FUNCTION SUB_TOD_TIME : tod
+(*------------------------------------------------------------------------------
+  TIME_OF_DAY := TIME_OF_DAY - TIME;
+
+*)
+  VAR_INPUT
+    IN1              : tod;
+    IN2              : time;
+  END_VAR
+END_FUNCTION
+
+__DECL FUNCTION SUB_TOD_TOD : time
+(*------------------------------------------------------------------------------
+  TIME := TIME_OF_DAY - TIME_OF_DAY;
+
+*)
+  VAR_INPUT
+    IN1              : tod;
+    IN2              : tod;
+  END_VAR
+END_FUNCTION
+
+__DECL FUNCTION SUB_DT_TIME : dt
+(*------------------------------------------------------------------------------
+  DATE_AND_TIME := DATE_AND_TIME - TIME;
+
+*)
+  VAR_INPUT
+    IN1              : dt;
+    IN2              : time;
+  END_VAR
+END_FUNCTION
+
+__DECL FUNCTION SUB_DT_DT : time
+(*------------------------------------------------------------------------------
+  TIME := DATE_AND_TIME - DATE_AND_TIME;
+
+*)
+  VAR_INPUT
+    IN1              : dt;
+    IN2              : dt;
+  END_VAR
+END_FUNCTION
+
+__DECL FUNCTION CONCAT_DATE_TOD : dt
+(*------------------------------------------------------------------------------
+  DATE_AND_TIME := DATE + TIME_OF_DAY;
+
+*)
+  VAR_INPUT
+    IN1              : date;
+    IN2              : tod;
+  END_VAR
+END_FUNCTION
+
+
+

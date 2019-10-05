@@ -1,0 +1,17 @@
+#srcfile 'H:\MOSAIC\TECOAPP\KRIZ\PRENOS\PRENOS.MCF'
+ 
+#srcfile 'H:\MOSAIC\TECOAPP\KRIZ\PRENOS\PRENOS.MCF'
+
+; ***** RESOURCE - CPM
+#reg Prenos_p Prenos_i
+#srcline 4 ;    PROGRAM Prenos_i WITH FreeWheeling : Prenos_p ();
+P     0
+ LEA  Prenos_i
+ CAL  Prenos_p_L0
+E     0
+
+
+
+ 
+
+#srcfile ''

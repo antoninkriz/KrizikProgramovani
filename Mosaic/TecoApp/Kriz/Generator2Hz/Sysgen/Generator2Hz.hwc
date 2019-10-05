@@ -1,0 +1,122 @@
+;Upozornìní 
+;Soubor je automaticky regenerován a všechny ruèní modifikace budou ztracené. 
+;----------------------------------------------------------------------
+;Generováno pro TC700 
+;**********************************************************************
+#struct TModulE1
+        USINT version,
+        USINT rack,
+        USINT address,
+        UINT  LogAddress,
+        UINT  LenInputs,
+        UINT  LenOutputs,
+        DINT  OffsetInputs,
+        DINT  OffsetOutputs,
+        UINT  InitTable
+
+#struct _TTS_Head
+        UINT  ModulID,
+        USINT Stat0,
+        USINT Stat1
+
+#struct _TTS_SetSCH
+        USINT mode,
+        USINT adr,
+        USINT speed,
+        USINT timeOut,
+        USINT pause,
+        USINT segm,
+        USINT rez7,
+        USINT param
+
+#struct _TTS_Modem
+        UINT  lenmi,
+        UINT  lenmo,
+        UDINT imodi,
+        UDINT imodo
+
+#struct _TTS_SCH
+        UINT        code,
+        UINT        mode,
+        _TTS_SetSCH parSCH,
+        _TTS_Modem  modem
+
+;Poèet rámù : 4
+;----------------------------------------------------------------------
+;Rám : 0 ; Pozice : 0 ; 	 Typ jednotky : CP-1004; TXN 110 04
+#table _TTS_SCH _Table_CH1 = $00C2,$0000,	; PC
+                             $02,$00,$0E,$0A,$00,$00,$00,$00,	; 
+                             0,0,0,0	; Modems
+#module TModulE1 1, 0, 0, $0101, 10, 2, __offset(r0_p0_Statistic_CH1), __offset(r0_p0_Control_CH1), __indx (_Table_CH1)
+
+;----------------------------------------------------------------------
+;Rám : 0 ; Pozice : 2 ; 	 Typ jednotky : MI2-01M; TXN 131 27
+#ifdef _def_CanCIBModule_MI_CIB1
+  #ifndef _Table_CIB_MI_CIB1
+    #error F'Konfigurace CFox nebo RFox je zastaralá. Prosím otevøete okno pro nastavení CFox, RFox jednotek a potvrïte OK.'
+  #endif
+  ;#module TModulE1 1, 0, 2, $110, 10, 2, __offset(r0_p2_Statistic_MI_CIB1), __offset(r0_p2_Control_MI_CIB1), __indx (_Table_CIB_MI_CIB1)
+#endif
+;----------------------------------------------------------------------
+;Rám : 0 ; Pozice : 3 ; 	 Typ jednotky : IR-1057; TXN 110 57
+#struct _TTS_IR1057
+        _TTS_Head    Head,
+        USINT EDI,
+        USINT EDIP,
+        USINT ESCNT1,
+        USINT ECNT1,
+        USINT ECNT1B,
+        USINT ESCNT2,
+        USINT ECNT2,
+        USINT ECNT2B,
+        USINT ESAI0,
+        USINT EFS0,
+        USINT EENG0,
+        USINT EPCT0,
+        USINT ESAI1,
+        USINT EFS1,
+        USINT EENG1,
+        USINT EPCT1,
+        USINT ESAI2,
+        USINT EFS2,
+        USINT EENG2,
+        USINT EPCT2,
+        USINT ESAI3,
+        USINT EFS3,
+        USINT EENG3,
+        USINT EPCT3,
+        USINT EDO,
+        USINT Erez,
+        USINT ECCNT1,
+        USINT ESET1,
+        USINT ECCNT2,
+        USINT ESET2,
+        USINT SPE,
+        USINT SPP,
+        USINT MODCNT1,
+        USINT CFGCNT1,
+        USINT MODCNT2,
+        USINT CFGCNT2
+#table _TTS_IR1057 _r0_p3_Table = 1055,$00,$00,
+                                  $80,$00,
+                                  $80,$80,$80,
+                                  $00,$00,$00,
+                                  $00,$00,$00,$00,
+                                  $00,$00,$00,$00,
+                                  $00,$00,$00,$00,
+                                  $00,$00,$00,$00,
+                                  $80,$00,
+                                  $80,$80,$00,$00,
+                                  $00,$00,
+                                  $1C,$00,
+                                  $00,$00
+#module TModulE1 1, 0, 3, $0, 70, 14, __offset(r0_p3_DI), __offset(r0_p3_DO), __indx (_r0_p3_Table)
+
+;......................................................................
+
+
+;**********************************************************************
+;Generováno programem MOSAIC 
+;© 2001-2013 Teco a.s. 
+;Verze : 3.1 
+;DLL Verze : 13.1.2.247 

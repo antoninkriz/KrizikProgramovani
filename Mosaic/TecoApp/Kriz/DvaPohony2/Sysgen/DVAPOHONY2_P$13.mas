@@ -1,0 +1,74 @@
+#srcfile 'H:\MOSAIC\TECOAPP\KRIZ\DVAPOHONY2\DVAPOHONY2_P.LD'
+
+#defpou dvapohony2_p
+  bool beh
+
+ 
+#srcfile 'H:\MOSAIC\TECOAPP\KRIZ\DVAPOHONY2\DVAPOHONY2_P.LD'
+#pou dvapohony2_p
+#srcline 1 ;PROGRAM dvapohony2_p
+P     61
+dvapohony2_p_L0:
+ LINK 0
+#srcline 45 ;(* 20 *)    LD_BOOL   START
+ LD   bool START
+#debug bool START
+#srcline 46 ;(* 21 *)    AND       Vp1
+ LD   bool Vp1
+#debug bool Vp1
+ AND
+#srcline 47 ;(* 22 *)    AND       Vp2
+ LD   bool Vp2
+#debug bool Vp2
+ AND
+#srcline 48 ;(* 23 *)    OR        beh
+ LDX  beh
+#debug bool beh
+ OR
+#srcline 49 ;(* 24 *)    ANDN      STOP
+ LD   bool STOP
+#debug bool STOP
+ NEG
+ AND
+#srcline 50 ;(* 25 *)    ST        beh
+ WRX  beh
+#debug_left bool beh
+#srcline 51 ;(* Network 2 *)
+#srcline 52 ;(* 32 *)    LD_BOOL   beh
+ LDX  beh
+#debug bool beh
+#srcline 53 ;(* 33 *)    ST        P1
+ WR   bool P1
+#debug_left bool P1
+#srcline 54 ;(* 34 *)    AND       Pp1
+ LD   bool Pp1
+#debug bool Pp1
+ AND
+#srcline 55 ;(* 35 *)    ANDN      Pp2
+ LD   bool Pp2
+#debug bool Pp2
+ NEG
+ AND
+#srcline 56 ;(* 36 *)    ST        P2
+ WR   bool P2
+#debug_left bool P2
+#srcline 57 ;(* 37 *)    AND       Vp2
+ LD   bool Vp2
+#debug bool Vp2
+ AND
+#srcline 58 ;(* 38 *)    STN       P1
+ NEG
+ WR   bool P1
+#debug_left bool P1
+ NEG
+#srcline 59 ;END_PROGRAM
+ ULNK
+RET
+E     61
+#endpou 
+
+
+
+ 
+
+#srcfile ''

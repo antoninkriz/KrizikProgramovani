@@ -1,0 +1,17 @@
+#srcfile 'H:\MOSAIC\TECOAPP\KRIZ\SVETLAAUTO\SVETLAAUTO.MCF'
+ 
+#srcfile 'H:\MOSAIC\TECOAPP\KRIZ\SVETLAAUTO\SVETLAAUTO.MCF'
+
+; ***** RESOURCE - CPM
+#reg svetlaauto_p svetlaauto_i
+#srcline 4 ;    PROGRAM svetlaauto_i WITH FreeWheeling : svetlaauto_p ();
+P     0
+ LEA  svetlaauto_i
+ CAL  svetlaauto_p_L0
+E     0
+
+
+
+ 
+
+#srcfile ''

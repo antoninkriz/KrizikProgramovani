@@ -1,0 +1,135 @@
+#srcfile 'H:\MOSAIC\TECOAPP\KRIZ\TESTULOHA1\TESTULOHA1_P.LD'
+
+#defpou testuloha1_p
+  bool beh,
+  bool starter,
+  bool stoper
+
+ 
+#srcfile 'H:\MOSAIC\TECOAPP\KRIZ\TESTULOHA1\TESTULOHA1_P.LD'
+#pou testuloha1_p
+#srcline 1 ;PROGRAM testuloha1_p
+P     61
+testuloha1_p_L0:
+ LINK 0
+#srcline 83 ;(* 22 *)    LD_BOOL   START
+ LD   bool START
+#debug bool START
+#srcline 84 ;(* 23 *)    AND       polohaL
+ LD   bool polohaL
+#debug bool polohaL
+ AND
+#srcline 85 ;(* 24 *)    OR        beh
+ LDX  beh
+#debug bool beh
+ OR
+#srcline 86 ;(* 25 *)    ST        starter
+ WRX  starter
+#debug_left bool starter
+#srcline 87 ;(* Network 2 *)
+#srcline 88 ;(* 32 *)    LD_BOOL   STOP
+ LD   bool STOP
+#debug bool STOP
+#srcline 89 ;(* 33 *)    OR        stoper
+ LDX  stoper
+#debug bool stoper
+ OR
+#srcline 90 ;(* 34 *)    AND       beh
+ LDX  beh
+#debug bool beh
+ AND
+#srcline 91 ;(* 35 *)    ST        stoper
+ WRX  stoper
+#debug_left bool stoper
+#srcline 92 ;(* Network 3 *)
+#srcline 93 ;(* 42 *)    LD_BOOL   starter
+ LDX  starter
+#debug bool starter
+#srcline 94 ;(* 43 *)    AND(
+ PSHL
+#srcline 95 ;(* 44 *)      LDN_BOOL  stoper
+ LDX  stoper
+#debug bool stoper
+ NEG
+#srcline 96 ;(* 45 *)      OR(
+ PSHL
+#srcline 97 ;(* 46 *)        LD_BOOL   stoper
+ LDX  stoper
+#debug bool stoper
+#srcline 98 ;(* 47 *)        ANDN      polohaL
+ LD   bool polohaL
+#debug bool polohaL
+ NEG
+ AND
+#srcline 99 ;(* 48 *)      )
+ POPL
+#debug_type bool
+ OR
+#srcline 100 ;(* 49 *)    )
+ POPL
+#debug_type bool
+ AND
+#srcline 101 ;(* 50 *)    ST        beh
+ WRX  beh
+#debug_left bool beh
+#srcline 102 ;(* Network 4 *)
+#srcline 103 ;(* 57 *)    LD_BOOL   beh
+ LDX  beh
+#debug bool beh
+#srcline 104 ;(* 58 *)    AND(
+ PSHL
+#srcline 105 ;(* 59 *)      LD_BOOL   polohaL
+ LD   bool polohaL
+#debug bool polohaL
+#srcline 106 ;(* 60 *)      OR        pohybDoP
+ LD   bool pohybDoP
+#debug bool pohybDoP
+ OR
+#srcline 107 ;(* 61 *)    )
+ POPL
+#debug_type bool
+ AND
+#srcline 108 ;(* 62 *)    ANDN      polohaP
+ LD   bool polohaP
+#debug bool polohaP
+ NEG
+ AND
+#srcline 109 ;(* 63 *)    ST        pohybDoP
+ WR   bool pohybDoP
+#debug_left bool pohybDoP
+#srcline 110 ;(* Network 5 *)
+#srcline 111 ;(* 70 *)    LD_BOOL   beh
+ LDX  beh
+#debug bool beh
+#srcline 112 ;(* 71 *)    AND(
+ PSHL
+#srcline 113 ;(* 72 *)      LD_BOOL   polohaP
+ LD   bool polohaP
+#debug bool polohaP
+#srcline 114 ;(* 73 *)      OR        pohybDoL
+ LD   bool pohybDoL
+#debug bool pohybDoL
+ OR
+#srcline 115 ;(* 74 *)    )
+ POPL
+#debug_type bool
+ AND
+#srcline 116 ;(* 75 *)    ANDN      polohaL
+ LD   bool polohaL
+#debug bool polohaL
+ NEG
+ AND
+#srcline 117 ;(* 76 *)    ST        pohybDoL
+ WR   bool pohybDoL
+#debug_left bool pohybDoL
+#srcline 118 ;END_PROGRAM
+ ULNK
+RET
+E     61
+#endpou 
+
+
+
+ 
+
+#srcfile ''

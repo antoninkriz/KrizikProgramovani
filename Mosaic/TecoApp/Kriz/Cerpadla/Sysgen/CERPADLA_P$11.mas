@@ -1,0 +1,88 @@
+#srcfile 'H:\MOSAIC\TECOAPP\KRIZ\CERPADLA\CERPADLA_P.LD'
+
+#defpou cerpadla_p
+  byte dummy
+
+ 
+#srcfile 'H:\MOSAIC\TECOAPP\KRIZ\CERPADLA\CERPADLA_P.LD'
+#pou cerpadla_p
+#srcline 1 ;PROGRAM cerpadla_p
+P     61
+cerpadla_p_L0:
+ LINK 0
+#srcline 55 ;(* 19 *)    LD_BOOL   s1
+ LD   bool s1
+#debug bool s1
+#srcline 56 ;(* 20 *)    AND(
+ PSHL
+#srcline 57 ;(* 21 *)      LDN_BOOL  c2
+ LD   bool c2
+#debug bool c2
+ NEG
+#srcline 58 ;(* 22 *)      ORN       c3
+ LD   bool c3
+#debug bool c3
+ NEG
+ OR
+#srcline 59 ;(* 23 *)    )
+ POPL
+#debug_type bool
+ AND
+#srcline 60 ;(* 24 *)    ST        c1
+ WR   bool c1
+#debug_left bool c1
+#srcline 61 ;(* Network 2 *)
+#srcline 62 ;(* 31 *)    LD_BOOL   s2
+ LD   bool s2
+#debug bool s2
+#srcline 63 ;(* 32 *)    AND(
+ PSHL
+#srcline 64 ;(* 33 *)      LDN_BOOL  c1
+ LD   bool c1
+#debug bool c1
+ NEG
+#srcline 65 ;(* 34 *)      ORN       c3
+ LD   bool c3
+#debug bool c3
+ NEG
+ OR
+#srcline 66 ;(* 35 *)    )
+ POPL
+#debug_type bool
+ AND
+#srcline 67 ;(* 36 *)    ST        c2
+ WR   bool c2
+#debug_left bool c2
+#srcline 68 ;(* Network 3 *)
+#srcline 69 ;(* 43 *)    LD_BOOL   s3
+ LD   bool s3
+#debug bool s3
+#srcline 70 ;(* 44 *)    AND(
+ PSHL
+#srcline 71 ;(* 45 *)      LDN_BOOL  c2
+ LD   bool c2
+#debug bool c2
+ NEG
+#srcline 72 ;(* 46 *)      ORN       c1
+ LD   bool c1
+#debug bool c1
+ NEG
+ OR
+#srcline 73 ;(* 47 *)    )
+ POPL
+#debug_type bool
+ AND
+#srcline 74 ;(* 48 *)    ST        c3
+ WR   bool c3
+#debug_left bool c3
+#srcline 75 ;END_PROGRAM
+ ULNK
+RET
+E     61
+#endpou 
+
+
+
+ 
+
+#srcfile ''

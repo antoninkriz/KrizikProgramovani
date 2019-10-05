@@ -1,0 +1,137 @@
+#srcfile 'H:\MOSAIC\TECOAPP\KRIZ\POHYBBRUSKY\POHYBBRUSKY_P.LD'
+
+#defpou pohybbrusky_p
+  bool beh,
+  bool zastav
+
+ 
+#srcfile 'H:\MOSAIC\TECOAPP\KRIZ\POHYBBRUSKY\POHYBBRUSKY_P.LD'
+#pou pohybbrusky_p
+#srcline 1 ;PROGRAM pohybbrusky_p
+P     61
+pohybbrusky_p_L0:
+ LINK 0
+#srcline 72 ;(* 21 *)    LD_BOOL   START
+ LD   bool START
+#debug bool START
+#srcline 73 ;(* 22 *)    AND       Leva
+ LD   bool Leva
+#debug bool Leva
+ AND
+#srcline 74 ;(* 23 *)    OR        beh
+ LDX  beh
+#debug bool beh
+ OR
+#srcline 75 ;(* 24 *)    OR(
+ PSHL
+#srcline 76 ;(* 25 *)      LD_BOOL   STOP
+ LD   bool STOP
+#debug bool STOP
+#srcline 77 ;(* 26 *)      OR(
+ PSHL
+#srcline 78 ;(* 27 *)        LD_BOOL   zastav
+ LDX  zastav
+#debug bool zastav
+#srcline 79 ;(* 28 *)        AND       beh
+ LDX  beh
+#debug bool beh
+ AND
+#srcline 80 ;(* 29 *)      )
+ POPL
+#debug_type bool
+ OR
+#srcline 81 ;(* 30 *)      ST        zastav
+ WRX  zastav
+#debug_left bool zastav
+#srcline 82 ;(* 31 *)    )
+ POPL
+#debug_type bool
+ OR
+#srcline 83 ;(* 32 *)    AND(
+ PSHL
+#srcline 84 ;(* 33 *)      LDN_BOOL  zastav
+ LDX  zastav
+#debug bool zastav
+ NEG
+#srcline 85 ;(* 34 *)      OR(
+ PSHL
+#srcline 86 ;(* 35 *)        LD_BOOL   zastav
+ LDX  zastav
+#debug bool zastav
+#srcline 87 ;(* 36 *)        ANDN      Leva
+ LD   bool Leva
+#debug bool Leva
+ NEG
+ AND
+#srcline 88 ;(* 37 *)      )
+ POPL
+#debug_type bool
+ OR
+#srcline 89 ;(* 38 *)    )
+ POPL
+#debug_type bool
+ AND
+#srcline 90 ;(* 39 *)    ST        beh
+ WRX  beh
+#debug_left bool beh
+#srcline 91 ;(* Network 2 *)
+#srcline 92 ;(* 46 *)    LD_BOOL   beh
+ LDX  beh
+#debug bool beh
+#srcline 93 ;(* 47 *)    AND(
+ PSHL
+#srcline 94 ;(* 48 *)      LD_BOOL   Leva
+ LD   bool Leva
+#debug bool Leva
+#srcline 95 ;(* 49 *)      OR        Vpravo
+ LD   bool Vpravo
+#debug bool Vpravo
+ OR
+#srcline 96 ;(* 50 *)    )
+ POPL
+#debug_type bool
+ AND
+#srcline 97 ;(* 51 *)    ANDN      Prava
+ LD   bool Prava
+#debug bool Prava
+ NEG
+ AND
+#srcline 98 ;(* 52 *)    ST        Vpravo
+ WR   bool Vpravo
+#debug_left bool Vpravo
+#srcline 99 ;(* Network 3 *)
+#srcline 100 ;(* 59 *)    LD_BOOL   beh
+ LDX  beh
+#debug bool beh
+#srcline 101 ;(* 60 *)    AND(
+ PSHL
+#srcline 102 ;(* 61 *)      LD_BOOL   Prava
+ LD   bool Prava
+#debug bool Prava
+#srcline 103 ;(* 62 *)      OR        Vlevo
+ LD   bool Vlevo
+#debug bool Vlevo
+ OR
+#srcline 104 ;(* 63 *)    )
+ POPL
+#debug_type bool
+ AND
+#srcline 105 ;(* 64 *)    ANDN      Leva
+ LD   bool Leva
+#debug bool Leva
+ NEG
+ AND
+#srcline 106 ;(* 65 *)    ST        Vlevo
+ WR   bool Vlevo
+#debug_left bool Vlevo
+#srcline 107 ;END_PROGRAM
+ ULNK
+RET
+E     61
+#endpou 
+
+
+
+ 
+
+#srcfile ''

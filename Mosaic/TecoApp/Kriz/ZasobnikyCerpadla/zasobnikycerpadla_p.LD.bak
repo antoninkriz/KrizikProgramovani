@@ -1,0 +1,86 @@
+PROGRAM zasobnikycerpadla_p
+  VAR_INPUT
+  END_VAR
+  VAR_OUTPUT
+  END_VAR
+  VAR
+    asd : BOOL;
+    BEZI : BOOL;
+  END_VAR
+  VAR_TEMP
+  END_VAR
+{NOCODE}
+(*
+  Komentáø ke schématu
+*)
+
+{NETWORK}
+(*
+  Komentáø k obvodu
+*)
+  LD_BOOL   "CERP"
+  ANDN      "L90"
+  OR(
+    LDN_BOOL  "L90"
+    AND(
+      LDN_BOOL  "L80"
+      ANDN      "P80"
+      ORN       "L50"
+    )
+  )
+  ST        "LVENT"
+  OR(
+    LD_BOOL   "CERP"
+    ANDN      "P90"
+    OR(
+      LDN_BOOL  "P90"
+      AND(
+        LDN_BOOL  "P80"
+        ANDN      "L80"
+        ORN       "P50"
+      )
+    )
+    ANDN      "LVENT"
+    ST        "PVENT"
+  )
+  ST        "CERP"
+{/NETWORK}
+
+
+{/NOCODE}
+{ILCODE}
+(* Network 1 *)
+(* 21 *)    LD_BOOL   CERP
+(* 22 *)    ANDN      L90
+(* 23 *)    OR(
+(* 24 *)      LDN_BOOL  L90
+(* 25 *)      AND(
+(* 26 *)        LDN_BOOL  L80
+(* 27 *)        ANDN      P80
+(* 28 *)        ORN       L50
+(* 29 *)      )
+(* 30 *)    )
+(* 31 *)    ST        LVENT
+(* 32 *)    OR(
+(* 33 *)      LD_BOOL   CERP
+(* 34 *)      ANDN      P90
+(* 35 *)      OR(
+(* 36 *)        LDN_BOOL  P90
+(* 37 *)        AND(
+(* 38 *)          LDN_BOOL  P80
+(* 39 *)          ANDN      L80
+(* 40 *)          ORN       P50
+(* 41 *)        )
+(* 42 *)      )
+(* 43 *)      ANDN      LVENT
+(* 44 *)      ST        PVENT
+(* 45 *)    )
+(* 46 *)    ST        CERP
+END_PROGRAM
+{STCODE}
+
+{DEBUG_INFO=
+ 21:53:0 22:54:0 24:56:0 26:58:0 27:59:0 28:60:0 29:61:0 30:62:0 31:63:0
+ 33:65:0 34:66:0 36:68:0 38:70:0 39:71:0 40:72:0 41:73:0 42:74:0 43:75:0
+ 44:76:0 45:77:0 46:78:0
+}

@@ -1,0 +1,229 @@
+#srcfile 'H:\MOSAIC\TECOAPP\KRIZ\POCETKROKU\POCETKROKU_P.LD'
+
+#defpou pocetkroku_p
+  CTUD citac,
+  bool dolu,
+  bool max,
+  bool min,
+  bool beh,
+  bool impulzy,
+  TON generator,
+  time cas,
+  bool started,
+  TOF dobaStroje,
+  bool __EDGE_R__0,
+  bool __EDGE_R__1,
+  bool __EDGE_R__2,
+  bool __EDGE_R__3
+
+ 
+#srcfile 'H:\MOSAIC\TECOAPP\KRIZ\POCETKROKU\POCETKROKU_P.LD'
+#pou pocetkroku_p
+#srcline 1 ;PROGRAM pocetkroku_p
+
+#struct pocetkroku_p__temp__
+  bool __TMP_1,
+  bool __TMP_2
+P     61
+pocetkroku_p_L0:
+ LINK __SizeOf(pocetkroku_p__temp__)
+; Initialize - dynamic variables
+; End initialize - dynamic variables
+#srcline 109 ;(* 29 *)    LD_EDGE   START
+ LD   bool START
+#debug bool START
+ LETX __EDGE_R__0
+#debug_type bool
+#srcline 110 ;(* 30 *)    OR        started
+ LDX  started
+#debug bool started
+ OR
+#srcline 111 ;(* 31 *)    ANDN      min
+ LDX  min
+#debug bool min
+ NEG
+ AND
+#srcline 112 ;(* 32 *)    ST        started
+ WRX  started
+#debug_left bool started
+#srcline 113 ;(* Network 2 *)
+#srcline 114 ;(* 39 *)    LD_BOOL   started
+ LDX  started
+#debug bool started
+#srcline 115 ;(* 40 *)    ANDN      impulzy
+ LDX  impulzy
+#debug bool impulzy
+ NEG
+ AND
+#srcline 116 ;(* 42 *)    ST        generator.IN
+ WRX  generator~IN
+#debug_left bool generator.IN
+#srcline 117 ;(* 41 *)    CAL generator (PT:=T#1s)
+ LD   time 1000
+ WRX  generator~PT
+#debug_left time generator~PT
+ LEAX generator
+ CAL  TON_L0
+#srcline 118 ;(* 45 *)    LD        generator.ET
+ LDX  generator~ET
+#debug time generator.ET
+#srcline 119 ;(* 45 *)    ST        cas
+ WRX  cas
+#debug_left time cas
+#srcline 120 ;(* 44 *)    LD        generator.Q
+ LDX  generator~Q
+#debug bool generator.Q
+#srcline 121 ;(* 47 *)    ST        impulzy
+ WRX  impulzy
+#debug_left bool impulzy
+#srcline 122 ;(* Network 3 *)
+#srcline 123 ;(* 54 *)    LD_EDGE   POCET
+ LD   bool POCET
+#debug bool POCET
+ LETX __EDGE_R__1
+#debug_type bool
+#srcline 124 ;{CREATE_TEMP=__Tmp_1}
+#srcline 125 ;(* 55 *)    ST        __Tmp_1
+ WRY  __Tmp_1
+#debug_left bool __Tmp_1
+#srcline 126 ;(* 58 *)    LD_EDGE   dolu
+ LDX  dolu
+#debug bool dolu
+ LETX __EDGE_R__2
+#debug_type bool
+#srcline 127 ;{CREATE_TEMP=__Tmp_2}
+#srcline 128 ;(* 57 *)    ST        __Tmp_2
+ WRY  __Tmp_2
+#debug_left bool __Tmp_2
+#srcline 129 ;(* 55 *)    CAL citac (CU:=__Tmp_1,CD:=__Tmp_2,R:=citac.R,LD:=citac.LD,PV:=1000)
+ LDY  __Tmp_1
+#debug bool __Tmp_1
+ WRX  citac~CU
+#debug_left bool citac~CU
+ LDY  __Tmp_2
+#debug bool __Tmp_2
+ WRX  citac~CD
+#debug_left bool citac~CD
+ LDX  citac~R
+#debug bool citac.R
+ WRX  citac~R
+#debug_left bool citac~R
+ LDX  citac~LD
+#debug bool citac.LD
+ WRX  citac~LD
+#debug_left bool citac~LD
+ LD   int 1000
+ WRX  citac~PV
+#debug_left int citac~PV
+ LEAX citac
+ CAL  CTUD_L0
+#srcline 130 ;(* 64 *)    LD        citac.QD
+ LDX  citac~QD
+#debug bool citac.QD
+#srcline 131 ;(* 64 *)    ST        min
+ WRX  min
+#debug_left bool min
+#srcline 132 ;(* 65 *)    LD        citac.CV
+ LDX  citac~CV
+#debug int citac.CV
+ EXTW 
+#srcline 133 ;(* 65 *)    ST        hodnota
+ WR   hodnota
+#debug_left int hodnota
+#srcline 134 ;(* 63 *)    LD        citac.QU
+ LDX  citac~QU
+#debug bool citac.QU
+#srcline 135 ;(* 67 *)    ST        max
+ WRX  max
+#debug_left bool max
+#srcline 136 ;(* Network 4 *)
+#srcline 137 ;(* 74 *)    LD_BOOL   started
+ LDX  started
+#debug bool started
+#srcline 138 ;(* 76 *)    JMPCN __PouSkip_75
+ JMC  pocetkroku_p___POUSKIP_75
+#srcline 139 ;(* 75 *)    LD        hodnota
+ LD   hodnota
+#debug int hodnota
+ EXTW 
+#srcline 140 ;(* 78 *)    NE        0
+ LD   int 0
+ EQ
+ NEG
+#srcline 141 ;(* 79 *)    __CR_TEST
+ OR   BOOL 0
+#debug_type bool
+#srcline 142 ;(* 75 *)  __PouSkip_75:
+pocetkroku_p___POUSKIP_75:
+#srcline 143 ;(* 81 *)    ST        beh
+ WRX  beh
+#debug_left bool beh
+#srcline 144 ;(* Network 5 *)
+#srcline 145 ;(* 88 *)    LD_BOOL   beh
+ LDX  beh
+#debug bool beh
+#srcline 146 ;(* 89 *)    AND       impulzy
+ LDX  impulzy
+#debug bool impulzy
+ AND
+#srcline 147 ;(* 90 *)    OR(
+ PSHL
+#srcline 148 ;(* 91 *)      LD_EDGE   KROK
+ LD   bool KROK
+#debug bool KROK
+ LETX __EDGE_R__3
+#debug_type bool
+#srcline 149 ;(* 92 *)      ANDN      started
+ LDX  started
+#debug bool started
+ NEG
+ AND
+#srcline 150 ;(* 93 *)    )
+ POPL
+#debug_type bool
+ OR
+#srcline 151 ;(* 95 *)    ST        dobaStroje.IN
+ WRX  dobaStroje~IN
+#debug_left bool dobaStroje.IN
+#srcline 152 ;(* 94 *)    CAL dobaStroje (PT:=T#0.75s)
+ LD   time 750
+ WRX  dobaStroje~PT
+#debug_left time dobaStroje~PT
+ LEAX dobaStroje
+ CAL  TOF_L0
+#srcline 153 ;(* 97 *)    LD        dobaStroje.Q
+ LDX  dobaStroje~Q
+#debug bool dobaStroje.Q
+#srcline 154 ;(* 100 *)    ST        STROJ
+ WR   bool STROJ
+#debug_left bool STROJ
+#srcline 155 ;(* 101 *)    ANDN      KROK
+ LD   bool KROK
+#debug bool KROK
+ NEG
+ AND
+#srcline 156 ;(* 102 *)    ST        dolu
+ WRX  dolu
+#debug_left bool dolu
+#srcline 157 ;END_PROGRAM
+ ULNK
+RET
+E     61
+
+; Initialize - variables
+P     61
+pocetkroku_p__InstanceInit__:
+ LINK 0
+ LEAX dobaStroje
+ CAL  TOF__InstanceInit__
+ ULNK
+RET
+E     61
+; End initialize - variables
+#endpou 
+
+
+
+ 
+
+#srcfile ''

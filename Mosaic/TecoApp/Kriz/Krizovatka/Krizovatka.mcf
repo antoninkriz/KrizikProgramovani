@@ -1,0 +1,6 @@
+CONFIGURATION Krizovatka
+  RESOURCE CPM
+    TASK FreeWheeling(Number := 0);
+    PROGRAM krizovatka_i WITH FreeWheeling : krizovatka_p ();
+  END_RESOURCE
+END_CONFIGURATION

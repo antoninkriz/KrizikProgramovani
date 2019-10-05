@@ -1,0 +1,157 @@
+#srcfile 'H:\MOSAIC\TECOAPP\KRIZ\OSVETLENI4PATRA\PRGMAIN.LD'
+
+#defpou prgMain
+  TOF c1,
+  TOF c2,
+  TOF c3,
+  TOF c4
+
+ 
+#srcfile 'H:\MOSAIC\TECOAPP\KRIZ\OSVETLENI4PATRA\PRGMAIN.LD'
+#pou prgMain
+#srcline 1 ;PROGRAM prgMain
+P     61
+prgMain_L0:
+ LINK 0
+#srcline 73 ;(* 23 *)    LD_BOOL   s1
+ LD   bool s1
+#debug bool s1
+#srcline 74 ;(* 24 *)    OR        s2
+ LD   bool s2
+#debug bool s2
+ OR
+#srcline 75 ;(* 26 *)    ST        c1.IN
+ WRX  c1~IN
+#debug_left bool c1.IN
+#srcline 76 ;(* 25 *)    CAL c1 (PT:=T#5s)
+ LD   time 5000
+ WRX  c1~PT
+#debug_left time c1~PT
+ LEAX c1
+ CAL  TOF_L0
+#srcline 77 ;(* 28 *)    LD        c1.Q
+ LDX  c1~Q
+#debug bool c1.Q
+#srcline 78 ;(* 31 *)    ST        sv1
+ WR   bool sv1
+#debug_left bool sv1
+#srcline 79 ;(* 32 *)    OR(
+ PSHL
+#srcline 80 ;(* 33 *)      LD_BOOL   s1
+ LD   bool s1
+#debug bool s1
+#srcline 81 ;(* 34 *)      OR        s2
+ LD   bool s2
+#debug bool s2
+ OR
+#srcline 82 ;(* 35 *)      OR        s3
+ LD   bool s3
+#debug bool s3
+ OR
+#srcline 83 ;(* 37 *)      ST        c2.IN
+ WRX  c2~IN
+#debug_left bool c2.IN
+#srcline 84 ;(* 36 *)      CAL c2 (PT:=T#5s)
+ LD   time 5000
+ WRX  c2~PT
+#debug_left time c2~PT
+ LEAX c2
+ CAL  TOF_L0
+#srcline 85 ;(* 39 *)      LD        c2.Q
+ LDX  c2~Q
+#debug bool c2.Q
+#srcline 86 ;(* 42 *)      ST        sv2
+ WR   bool sv2
+#debug_left bool sv2
+#srcline 87 ;(* 43 *)    )
+ POPL
+#debug_type bool
+ OR
+#srcline 88 ;(* 44 *)    OR(
+ PSHL
+#srcline 89 ;(* 45 *)      LD_BOOL   s2
+ LD   bool s2
+#debug bool s2
+#srcline 90 ;(* 46 *)      OR        s3
+ LD   bool s3
+#debug bool s3
+ OR
+#srcline 91 ;(* 47 *)      OR        s4
+ LD   bool s4
+#debug bool s4
+ OR
+#srcline 92 ;(* 49 *)      ST        c3.IN
+ WRX  c3~IN
+#debug_left bool c3.IN
+#srcline 93 ;(* 48 *)      CAL c3 (PT:=T#5s)
+ LD   time 5000
+ WRX  c3~PT
+#debug_left time c3~PT
+ LEAX c3
+ CAL  TOF_L0
+#srcline 94 ;(* 51 *)      LD        c3.Q
+ LDX  c3~Q
+#debug bool c3.Q
+#srcline 95 ;(* 54 *)      ST        sv3
+ WR   bool sv3
+#debug_left bool sv3
+#srcline 96 ;(* 55 *)    )
+ POPL
+#debug_type bool
+ OR
+#srcline 97 ;(* 56 *)    OR(
+ PSHL
+#srcline 98 ;(* 57 *)      LD_BOOL   s3
+ LD   bool s3
+#debug bool s3
+#srcline 99 ;(* 58 *)      OR        s4
+ LD   bool s4
+#debug bool s4
+ OR
+#srcline 100 ;(* 60 *)      ST        c4.IN
+ WRX  c4~IN
+#debug_left bool c4.IN
+#srcline 101 ;(* 59 *)      CAL c4 (PT:=T#5s)
+ LD   time 5000
+ WRX  c4~PT
+#debug_left time c4~PT
+ LEAX c4
+ CAL  TOF_L0
+#srcline 102 ;(* 62 *)      LD        c4.Q
+ LDX  c4~Q
+#debug bool c4.Q
+#srcline 103 ;(* 65 *)      ST        sv4
+ WR   bool sv4
+#debug_left bool sv4
+#srcline 104 ;(* 66 *)    )
+ POPL
+#debug_type bool
+ OR
+#srcline 105 ;END_PROGRAM
+ ULNK
+RET
+E     61
+
+; Initialize - variables
+P     61
+prgMain__InstanceInit__:
+ LINK 0
+ LEAX c1
+ CAL  TOF__InstanceInit__
+ LEAX c2
+ CAL  TOF__InstanceInit__
+ LEAX c3
+ CAL  TOF__InstanceInit__
+ LEAX c4
+ CAL  TOF__InstanceInit__
+ ULNK
+RET
+E     61
+; End initialize - variables
+#endpou 
+
+
+
+ 
+
+#srcfile ''

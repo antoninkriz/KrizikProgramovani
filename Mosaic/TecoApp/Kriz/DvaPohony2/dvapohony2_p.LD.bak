@@ -1,0 +1,63 @@
+PROGRAM dvapohony2_p
+  VAR_INPUT
+  END_VAR
+  VAR_OUTPUT
+  END_VAR
+  VAR
+    beh : BOOL;
+  END_VAR
+  VAR_TEMP
+  END_VAR
+{NOCODE}
+(*
+  Komentáø ke schématu
+*)
+
+{NETWORK}
+(*
+------------------------------------------------------
+*)
+  LD_BOOL   "START"
+  AND       "Vp1"
+  AND       "Vp2"
+  OR        "beh"
+  ANDN      "STOP"
+  ST        "beh"
+{/NETWORK}
+
+{NETWORK}
+(*
+
+*)
+  LD_BOOL   "beh"
+  AND       "Vp2"
+  ST        "P1"
+  AND       "Pp1"
+  ANDN      "Pp2"
+  ST        "P2"
+{/NETWORK}
+
+
+{/NOCODE}
+{ILCODE}
+(* Network 1 *)
+(* 20 *)    LD_BOOL   START
+(* 21 *)    AND       Vp1
+(* 22 *)    AND       Vp2
+(* 23 *)    OR        beh
+(* 24 *)    ANDN      STOP
+(* 25 *)    ST        beh
+(* Network 2 *)
+(* 32 *)    LD_BOOL   beh
+(* 33 *)    AND       Vp2
+(* 34 *)    ST        P1
+(* 35 *)    AND       Pp1
+(* 36 *)    ANDN      Pp2
+(* 37 *)    ST        P2
+END_PROGRAM
+{STCODE}
+
+{DEBUG_INFO=
+ 20:44:0 21:45:0 22:46:0 23:47:0 24:48:0 25:49:0 32:51:0 33:52:0 34:53:0
+ 35:54:0 36:55:0 37:56:0
+}

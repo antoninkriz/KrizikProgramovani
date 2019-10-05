@@ -1,0 +1,240 @@
+#srcfile 'H:\MOSAIC\TECOAPP\KRIZ\BUBENPRACKY\BUBENPRACKY_P.LD'
+
+#defpou bubenpracky_p
+  bool beh,
+  TP cProg,
+  TP cP,
+  TP cL,
+  bool pauza,
+  TP cX,
+  TP cY,
+  bool pauza2,
+  CTUD ct,
+  bool limit,
+  bool __EDGE_R__0,
+  bool __EDGE_R__1
+
+ 
+#srcfile 'H:\MOSAIC\TECOAPP\KRIZ\BUBENPRACKY\BUBENPRACKY_P.LD'
+#pou bubenpracky_p
+#srcline 1 ;PROGRAM bubenpracky_p
+
+#struct bubenpracky_p__temp__
+  bool __TMP_1,
+  bool __TMP_2
+P     61
+bubenpracky_p_L0:
+ LINK __SizeOf(bubenpracky_p__temp__)
+; Initialize - dynamic variables
+; End initialize - dynamic variables
+#srcline 132 ;(* 29 *)    LD_EDGE   b2
+ LD   bool b2
+#debug bool b2
+ LETX __EDGE_R__0
+#debug_type bool
+#srcline 133 ;(* 30 *)    OR(
+ PSHL
+#srcline 134 ;(* 31 *)      LD_BOOL   beh
+ LDX  beh
+#debug bool beh
+#srcline 135 ;(* 33 *)      ST        cProg.IN
+ WRX  cProg~IN
+#debug_left bool cProg.IN
+#srcline 136 ;(* 32 *)      CAL cProg (PT:=T#60s)
+ LD   time 60000
+ WRX  cProg~PT
+#debug_left time cProg~PT
+ LEAX cProg
+ CAL  TP_L0
+#srcline 137 ;(* 35 *)      LD        cProg.Q
+ LDX  cProg~Q
+#debug bool cProg.Q
+#srcline 138 ;(* 38 *)    )
+ POPL
+#debug_type bool
+ OR
+#srcline 139 ;(* 39 *)    ANDN      limit
+ LDX  limit
+#debug bool limit
+ NEG
+ AND
+#srcline 140 ;(* 40 *)    ST        beh
+ WRX  beh
+#debug_left bool beh
+#srcline 141 ;(* Network 2 *)
+#srcline 142 ;(* 47 *)    LD_BOOL   pauza2
+ LDX  pauza2
+#debug bool pauza2
+#srcline 143 ;{CREATE_TEMP=__Tmp_1}
+#srcline 144 ;(* 48 *)    ST        __Tmp_1
+ WRY  __Tmp_1
+#debug_left bool __Tmp_1
+#srcline 145 ;(* 52 *)    LD_EDGE   b2
+ LD   bool b2
+#debug bool b2
+ LETX __EDGE_R__1
+#debug_type bool
+#srcline 146 ;{CREATE_TEMP=__Tmp_2}
+#srcline 147 ;(* 51 *)    ST        __Tmp_2
+ WRY  __Tmp_2
+#debug_left bool __Tmp_2
+#srcline 148 ;(* 48 *)    CAL ct (CU:=__Tmp_1,CD:=ct.CD,R:=__Tmp_2,LD:=ct.LD,PV:=2)
+ LDY  __Tmp_1
+#debug bool __Tmp_1
+ WRX  ct~CU
+#debug_left bool ct~CU
+ LDX  ct~CD
+#debug bool ct.CD
+ WRX  ct~CD
+#debug_left bool ct~CD
+ LDY  __Tmp_2
+#debug bool __Tmp_2
+ WRX  ct~R
+#debug_left bool ct~R
+ LDX  ct~LD
+#debug bool ct.LD
+ WRX  ct~LD
+#debug_left bool ct~LD
+ LD   int 2
+ WRX  ct~PV
+#debug_left int ct~PV
+ LEAX ct
+ CAL  CTUD_L0
+#srcline 149 ;(* 56 *)    LD        ct.QU
+ LDX  ct~QU
+#debug bool ct.QU
+#srcline 150 ;(* 60 *)    ST        limit
+ WRX  limit
+#debug_left bool limit
+#srcline 151 ;(* Network 3 *)
+#srcline 152 ;(* 67 *)    LD_BOOL   beh
+ LDX  beh
+#debug bool beh
+#srcline 153 ;(* 68 *)    ANDN      pauza
+ LDX  pauza
+#debug bool pauza
+ NEG
+ AND
+#srcline 154 ;(* 69 *)    ANDN      pauza2
+ LDX  pauza2
+#debug bool pauza2
+ NEG
+ AND
+#srcline 155 ;(* 70 *)    ANDN      d3
+ LD   bool d3
+#debug bool d3
+ NEG
+ AND
+#srcline 156 ;(* 72 *)    ST        cP.IN
+ WRX  cP~IN
+#debug_left bool cP.IN
+#srcline 157 ;(* 71 *)    CAL cP (PT:=T#10s)
+ LD   time 10000
+ WRX  cP~PT
+#debug_left time cP~PT
+ LEAX cP
+ CAL  TP_L0
+#srcline 158 ;(* 74 *)    LD        cP.Q
+ LDX  cP~Q
+#debug bool cP.Q
+#srcline 159 ;(* 77 *)    ST        d2
+ WR   bool d2
+#debug_left bool d2
+#srcline 160 ;(* Network 4 *)
+#srcline 161 ;(* 84 *)    LD_BOOL   beh
+ LDX  beh
+#debug bool beh
+#srcline 162 ;(* 85 *)    ANDN      d2
+ LD   bool d2
+#debug bool d2
+ NEG
+ AND
+#srcline 163 ;(* 87 *)    ST        cX.IN
+ WRX  cX~IN
+#debug_left bool cX.IN
+#srcline 164 ;(* 86 *)    CAL cX (PT:=T#5s)
+ LD   time 5000
+ WRX  cX~PT
+#debug_left time cX~PT
+ LEAX cX
+ CAL  TP_L0
+#srcline 165 ;(* 89 *)    LD        cX.Q
+ LDX  cX~Q
+#debug bool cX.Q
+#srcline 166 ;(* 92 *)    ST        pauza
+ WRX  pauza
+#debug_left bool pauza
+#srcline 167 ;(* Network 5 *)
+#srcline 168 ;(* 99 *)    LD_BOOL   beh
+ LDX  beh
+#debug bool beh
+#srcline 169 ;(* 100 *)    ANDN      pauza
+ LDX  pauza
+#debug bool pauza
+ NEG
+ AND
+#srcline 170 ;(* 101 *)    ANDN      d2
+ LD   bool d2
+#debug bool d2
+ NEG
+ AND
+#srcline 171 ;(* 103 *)    ST        cL.IN
+ WRX  cL~IN
+#debug_left bool cL.IN
+#srcline 172 ;(* 102 *)    CAL cL (PT:=T#10s)
+ LD   time 10000
+ WRX  cL~PT
+#debug_left time cL~PT
+ LEAX cL
+ CAL  TP_L0
+#srcline 173 ;(* 105 *)    LD        cL.Q
+ LDX  cL~Q
+#debug bool cL.Q
+#srcline 174 ;(* 108 *)    ST        d3
+ WR   bool d3
+#debug_left bool d3
+#srcline 175 ;(* Network 6 *)
+#srcline 176 ;(* 115 *)    LD_BOOL   beh
+ LDX  beh
+#debug bool beh
+#srcline 177 ;(* 116 *)    ANDN      pauza
+ LDX  pauza
+#debug bool pauza
+ NEG
+ AND
+#srcline 178 ;(* 117 *)    ANDN      d2
+ LD   bool d2
+#debug bool d2
+ NEG
+ AND
+#srcline 179 ;(* 118 *)    ANDN      d3
+ LD   bool d3
+#debug bool d3
+ NEG
+ AND
+#srcline 180 ;(* 120 *)    ST        cY.IN
+ WRX  cY~IN
+#debug_left bool cY.IN
+#srcline 181 ;(* 119 *)    CAL cY (PT:=T#5s)
+ LD   time 5000
+ WRX  cY~PT
+#debug_left time cY~PT
+ LEAX cY
+ CAL  TP_L0
+#srcline 182 ;(* 122 *)    LD        cY.Q
+ LDX  cY~Q
+#debug bool cY.Q
+#srcline 183 ;(* 125 *)    ST        pauza2
+ WRX  pauza2
+#debug_left bool pauza2
+#srcline 184 ;END_PROGRAM
+ ULNK
+RET
+E     61
+#endpou 
+
+
+
+ 
+
+#srcfile ''

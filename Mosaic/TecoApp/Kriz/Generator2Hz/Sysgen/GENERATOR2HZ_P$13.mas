@@ -1,0 +1,167 @@
+#srcfile 'H:\MOSAIC\TECOAPP\KRIZ\GENERATOR2HZ\GENERATOR2HZ_P.LD'
+
+#defpou generator2hz_p
+  TP c1,
+  TON c2,
+  bool impulzy,
+  CTUD cit,
+  int hodnota,
+  TON citReset,
+  bool impReset,
+  bool nerovno2,
+  bool NEFUNGUJE
+
+ 
+#srcfile 'H:\MOSAIC\TECOAPP\KRIZ\GENERATOR2HZ\GENERATOR2HZ_P.LD'
+#pou generator2hz_p
+#srcline 1 ;PROGRAM generator2hz_p
+
+#struct generator2hz_p__temp__
+  bool __TMP_1,
+  bool __TMP_2
+P     61
+generator2hz_p_L0:
+ LINK __SizeOf(generator2hz_p__temp__)
+; Initialize - dynamic variables
+; End initialize - dynamic variables
+#srcline 96 ;(* 28 *)    LDN_BOOL  impulzy
+ LDX  impulzy
+#debug bool impulzy
+ NEG
+#srcline 97 ;(* 30 *)    ST        c2.IN
+ WRX  c2~IN
+#debug_left bool c2.IN
+#srcline 98 ;(* 29 *)    CAL c2 (PT:=T#0.25s)
+ LD   time 250
+ WRX  c2~PT
+#debug_left time c2~PT
+ LEAX c2
+ CAL  TON_L0
+#srcline 99 ;(* 32 *)    LD        c2.Q
+ LDX  c2~Q
+#debug bool c2.Q
+#srcline 100 ;(* 36 *)    ST        c1.IN
+ WRX  c1~IN
+#debug_left bool c1.IN
+#srcline 101 ;(* 35 *)    CAL c1 (PT:=T#0.25s)
+ LD   time 250
+ WRX  c1~PT
+#debug_left time c1~PT
+ LEAX c1
+ CAL  TP_L0
+#srcline 102 ;(* 38 *)    LD        c1.Q
+ LDX  c1~Q
+#debug bool c1.Q
+#srcline 103 ;(* 41 *)    ST        impulzy
+ WRX  impulzy
+#debug_left bool impulzy
+#srcline 104 ;(* Network 2 *)
+#srcline 105 ;(* 48 *)    LD_BOOL   impReset
+ LDX  impReset
+#debug bool impReset
+#srcline 106 ;(* 50 *)    JMPCN __PouSkip_49
+ JMC  generator2hz_p___POUSKIP_49
+#srcline 107 ;(* 49 *)    LD        hodnota
+ LDX  hodnota
+#debug int hodnota
+ EXTW 
+#srcline 108 ;(* 52 *)    NE        2
+ LD   int 2
+ EQ
+ NEG
+#srcline 109 ;(* 53 *)    __CR_TEST
+ OR   BOOL 0
+#debug_type bool
+#srcline 110 ;(* 49 *)  __PouSkip_49:
+generator2hz_p___POUSKIP_49:
+#srcline 111 ;(* 55 *)    ST        nerovno2
+ WRX  nerovno2
+#debug_left bool nerovno2
+#srcline 112 ;(* Network 3 *)
+#srcline 113 ;(* 62 *)    LD_BOOL   impulzy
+ LDX  impulzy
+#debug bool impulzy
+#srcline 114 ;{CREATE_TEMP=__Tmp_1}
+#srcline 115 ;(* 63 *)    ST        __Tmp_1
+ WRY  __Tmp_1
+#debug_left bool __Tmp_1
+#srcline 116 ;(* 67 *)    LDN_BOOL  impReset
+ LDX  impReset
+#debug bool impReset
+ NEG
+#srcline 117 ;(* 69 *)    ST        citReset.IN
+ WRX  citReset~IN
+#debug_left bool citReset.IN
+#srcline 118 ;(* 68 *)    CAL citReset (PT:=T#1s)
+ LD   time 1000
+ WRX  citReset~PT
+#debug_left time citReset~PT
+ LEAX citReset
+ CAL  TON_L0
+#srcline 119 ;(* 71 *)    LD        citReset.Q
+ LDX  citReset~Q
+#debug bool citReset.Q
+#srcline 120 ;{CREATE_TEMP=__Tmp_2}
+#srcline 121 ;(* 66 *)    ST        __Tmp_2
+ WRY  __Tmp_2
+#debug_left bool __Tmp_2
+#srcline 122 ;(* 63 *)    CAL cit (CU:=__Tmp_1,CD:=cit.CD,R:=__Tmp_2,LD:=cit.LD,PV:=255)
+ LDY  __Tmp_1
+#debug bool __Tmp_1
+ WRX  cit~CU
+#debug_left bool cit~CU
+ LDX  cit~CD
+#debug bool cit.CD
+ WRX  cit~CD
+#debug_left bool cit~CD
+ LDY  __Tmp_2
+#debug bool __Tmp_2
+ WRX  cit~R
+#debug_left bool cit~R
+ LDX  cit~LD
+#debug bool cit.LD
+ WRX  cit~LD
+#debug_left bool cit~LD
+ LD   int 255
+ WRX  cit~PV
+#debug_left int cit~PV
+ LEAX cit
+ CAL  CTUD_L0
+#srcline 123 ;(* 78 *)    LD        cit.QD
+ LDX  cit~QD
+#debug bool cit.QD
+#srcline 124 ;(* 78 *)    ST        impReset
+ WRX  impReset
+#debug_left bool impReset
+#srcline 125 ;(* 79 *)    LD        cit.CV
+ LDX  cit~CV
+#debug int cit.CV
+ EXTW 
+#srcline 126 ;(* 79 *)    ST        hodnota
+ WRX  hodnota
+#debug_left int hodnota
+#srcline 127 ;(* 77 *)    LD        cit.QU
+ LDX  cit~QU
+#debug bool cit.QU
+#srcline 128 ;(* Network 4 *)
+#srcline 129 ;(* 87 *)    LD_BOOL   nerovno2
+ LDX  nerovno2
+#debug bool nerovno2
+#srcline 130 ;(* 88 *)    OR        NEFUNGUJE
+ LDX  NEFUNGUJE
+#debug bool NEFUNGUJE
+ OR
+#srcline 131 ;(* 89 *)    ST        NEFUNGUJE
+ WRX  NEFUNGUJE
+#debug_left bool NEFUNGUJE
+#srcline 132 ;END_PROGRAM
+ ULNK
+RET
+E     61
+#endpou 
+
+
+
+ 
+
+#srcfile ''

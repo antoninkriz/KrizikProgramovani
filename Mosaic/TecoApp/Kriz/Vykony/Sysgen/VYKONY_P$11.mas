@@ -1,0 +1,63 @@
+#srcfile 'H:\MOSAIC\TECOAPP\KRIZ\VYKONY\VYKONY_P.LD'
+
+#defpou vykony_p
+  byte dummy
+
+ 
+#srcfile 'H:\MOSAIC\TECOAPP\KRIZ\VYKONY\VYKONY_P.LD'
+#pou vykony_p
+#srcline 1 ;PROGRAM vykony_p
+P     61
+vykony_p_L0:
+ LINK 0
+#srcline 47 ;(* 19 *)    LD_BOOL   S1
+ LD   bool S1
+#debug bool S1
+#srcline 48 ;(* 20 *)    ANDN      P3
+ LD   bool P3
+#debug bool P3
+ NEG
+ AND
+#srcline 49 ;(* 21 *)    ST        P1
+ WR   bool P1
+#debug_left bool P1
+#srcline 50 ;(* Network 2 *)
+#srcline 51 ;(* 28 *)    LD_BOOL   S2
+ LD   bool S2
+#debug bool S2
+#srcline 52 ;(* 29 *)    ANDN      P3
+ LD   bool P3
+#debug bool P3
+ NEG
+ AND
+#srcline 53 ;(* 30 *)    ST        P2
+ WR   bool P2
+#debug_left bool P2
+#srcline 54 ;(* Network 3 *)
+#srcline 55 ;(* 37 *)    LD_BOOL   S3
+ LD   bool S3
+#debug bool S3
+#srcline 56 ;(* 38 *)    ANDN      P1
+ LD   bool P1
+#debug bool P1
+ NEG
+ AND
+#srcline 57 ;(* 39 *)    ANDN      P2
+ LD   bool P2
+#debug bool P2
+ NEG
+ AND
+#srcline 58 ;(* 40 *)    ST        P3
+ WR   bool P3
+#debug_left bool P3
+#srcline 59 ;END_PROGRAM
+ ULNK
+RET
+E     61
+#endpou 
+
+
+
+ 
+
+#srcfile ''

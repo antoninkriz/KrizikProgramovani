@@ -1,0 +1,102 @@
+#srcfile 'H:\MOSAIC\TECOAPP\KRIZ\SVETLAAUTO\SVETLAAUTO_P.LD'
+
+#defpou svetlaauto_p
+  byte dummy
+
+ 
+#srcfile 'H:\MOSAIC\TECOAPP\KRIZ\SVETLAAUTO\SVETLAAUTO_P.LD'
+#pou svetlaauto_p
+#srcline 1 ;PROGRAM svetlaauto_p
+
+#struct svetlaauto_p__temp__
+  bool __TMP_1
+P     61
+svetlaauto_p_L0:
+ LINK __SizeOf(svetlaauto_p__temp__)
+; Initialize - dynamic variables
+; End initialize - dynamic variables
+#srcline 54 ;(* 19 *)    LD_BOOL   s1
+ LD   bool s1
+#debug bool s1
+#srcline 55 ;(* 20 *)    ST        vParkovaci
+ WR   bool vParkovaci
+#debug_left bool vParkovaci
+#srcline 56 ;(* Network 2 *)
+#srcline 57 ;(* 27 *)    LD_BOOL   s2
+ LD   bool s2
+#debug bool s2
+#srcline 58 ;(* 28 *)    AND       vParkovaci
+ LD   bool vParkovaci
+#debug bool vParkovaci
+ AND
+#srcline 59 ;{CREATE_TEMP=__Tmp_1}
+#srcline 60 ;(* 29 *)    ST __Tmp_1  // replacement of 'AND('
+ WRY  __Tmp_1
+#debug_left bool __Tmp_1
+#srcline 61 ;(* 30 *)      ANDN      s3
+ LD   bool s3
+#debug bool s3
+ NEG
+ AND
+#srcline 62 ;(* 31 *)      OR(
+ PSHL
+#srcline 63 ;(* 31 *)        LD_bool __Tmp_1
+ LDY  __Tmp_1
+#debug bool __Tmp_1
+#srcline 64 ;(* 31 *)        AND       vMlhova
+ LD   bool vMlhova
+#debug bool vMlhova
+ AND
+#srcline 65 ;(* 31 *)      )
+ POPL
+#debug_type bool
+ OR
+#srcline 66 ;(* 32 *)      ST        vTlumena
+ WR   bool vTlumena
+#debug_left bool vTlumena
+#srcline 67 ;(* 33 *)      OR(
+ PSHL
+#srcline 68 ;(* 33 *)        LD_bool __Tmp_1
+ LDY  __Tmp_1
+#debug bool __Tmp_1
+#srcline 69 ;(* 34 *)        AND       s3
+ LD   bool s3
+#debug bool s3
+ AND
+#srcline 70 ;(* 35 *)        ANDN      vMlhova
+ LD   bool vMlhova
+#debug bool vMlhova
+ NEG
+ AND
+#srcline 71 ;(* 36 *)        ST        vDalkova
+ WR   bool vDalkova
+#debug_left bool vDalkova
+#srcline 72 ;(* 37 *)      )
+ POPL
+#debug_type bool
+ OR
+#srcline 73 ;(* 38 *)    __CR_TEST
+ OR   BOOL 0
+#debug_type bool
+#srcline 74 ;(* Network 3 *)
+#srcline 75 ;(* 45 *)    LD_BOOL   s4
+ LD   bool s4
+#debug bool s4
+#srcline 76 ;(* 46 *)    AND       vParkovaci
+ LD   bool vParkovaci
+#debug bool vParkovaci
+ AND
+#srcline 77 ;(* 47 *)    ST        vMlhova
+ WR   bool vMlhova
+#debug_left bool vMlhova
+#srcline 78 ;END_PROGRAM
+ ULNK
+RET
+E     61
+#endpou 
+
+
+
+ 
+
+#srcfile ''

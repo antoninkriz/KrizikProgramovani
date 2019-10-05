@@ -1,0 +1,6 @@
+CONFIGURATION RozbehMotoru
+  RESOURCE CPM
+    TASK FreeWheeling(Number := 0);
+    PROGRAM rozbehmotoru_i WITH FreeWheeling : rozbehmotoru_p ();
+  END_RESOURCE
+END_CONFIGURATION

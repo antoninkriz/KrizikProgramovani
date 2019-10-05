@@ -1,0 +1,6 @@
+CONFIGURATION TriVstupy
+  RESOURCE CPM
+    TASK FreeWheeling(Number := 0);
+    PROGRAM trivstupu_i WITH FreeWheeling : trivstupy_p ();
+  END_RESOURCE
+END_CONFIGURATION

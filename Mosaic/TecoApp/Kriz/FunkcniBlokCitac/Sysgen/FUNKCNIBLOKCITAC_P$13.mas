@@ -1,0 +1,238 @@
+#srcfile 'H:\MOSAIC\TECOAPP\KRIZ\FUNKCNIBLOKCITAC\FUNKCNIBLOKCITAC_P.LD'
+
+#defpou funkcniblokcitac_p
+  CTUD citac,
+  TON generator,
+  bool impulzy,
+  time cas,
+  bool max,
+  bool min,
+  int hodnota,
+  bool preklop,
+  bool mala,
+  bool velka
+
+ 
+#srcfile 'H:\MOSAIC\TECOAPP\KRIZ\FUNKCNIBLOKCITAC\FUNKCNIBLOKCITAC_P.LD'
+#pou funkcniblokcitac_p
+#srcline 1 ;PROGRAM funkcniblokcitac_p
+
+#struct funkcniblokcitac_p__temp__
+  bool __TMP_1,
+  bool __TMP_2,
+  bool __TMP_3
+P     61
+funkcniblokcitac_p_L0:
+ LINK __SizeOf(funkcniblokcitac_p__temp__)
+; Initialize - dynamic variables
+; End initialize - dynamic variables
+#srcline 125 ;(* 33 *)    LD_BOOL   s1
+ LD   bool s1
+#debug bool s1
+#srcline 126 ;(* 34 *)    ANDN      impulzy
+ LDX  impulzy
+#debug bool impulzy
+ NEG
+ AND
+#srcline 127 ;(* 36 *)    ST        generator.IN
+ WRX  generator~IN
+#debug_left bool generator.IN
+#srcline 128 ;(* 35 *)    CAL generator (PT:=T#1s)
+ LD   time 1000
+ WRX  generator~PT
+#debug_left time generator~PT
+ LEAX generator
+ CAL  TON_L0
+#srcline 129 ;(* 39 *)    LD        generator.ET
+ LDX  generator~ET
+#debug time generator.ET
+#srcline 130 ;(* 39 *)    ST        cas
+ WRX  cas
+#debug_left time cas
+#srcline 131 ;(* 38 *)    LD        generator.Q
+ LDX  generator~Q
+#debug bool generator.Q
+#srcline 132 ;(* 41 *)    ST        impulzy
+ WRX  impulzy
+#debug_left bool impulzy
+#srcline 133 ;(* Network 2 *)
+#srcline 134 ;(* 48 *)    LD_BOOL   s2
+ LD   bool s2
+#debug bool s2
+#srcline 135 ;(* 49 *)    AND       impulzy
+ LDX  impulzy
+#debug bool impulzy
+ AND
+#srcline 136 ;(* 50 *)    ANDN      preklop
+ LDX  preklop
+#debug bool preklop
+ NEG
+ AND
+#srcline 137 ;{CREATE_TEMP=__Tmp_1}
+#srcline 138 ;(* 51 *)    ST        __Tmp_1
+ WRY  __Tmp_1
+#debug_left bool __Tmp_1
+#srcline 139 ;(* 54 *)    LD_BOOL   s2
+ LD   bool s2
+#debug bool s2
+#srcline 140 ;(* 55 *)    AND       impulzy
+ LDX  impulzy
+#debug bool impulzy
+ AND
+#srcline 141 ;(* 56 *)    AND       preklop
+ LDX  preklop
+#debug bool preklop
+ AND
+#srcline 142 ;{CREATE_TEMP=__Tmp_2}
+#srcline 143 ;(* 53 *)    ST        __Tmp_2
+ WRY  __Tmp_2
+#debug_left bool __Tmp_2
+#srcline 144 ;(* 59 *)    LD_BOOL   s3
+ LD   bool s3
+#debug bool s3
+#srcline 145 ;(* 60 *)    OR        max
+ LDX  max
+#debug bool max
+ OR
+#srcline 146 ;{CREATE_TEMP=__Tmp_3}
+#srcline 147 ;(* 58 *)    ST        __Tmp_3
+ WRY  __Tmp_3
+#debug_left bool __Tmp_3
+#srcline 148 ;(* 51 *)    CAL citac (CU:=__Tmp_1,CD:=__Tmp_2,R:=__Tmp_3,LD:=s5,PV:=10)
+ LDY  __Tmp_1
+#debug bool __Tmp_1
+ WRX  citac~CU
+#debug_left bool citac~CU
+ LDY  __Tmp_2
+#debug bool __Tmp_2
+ WRX  citac~CD
+#debug_left bool citac~CD
+ LDY  __Tmp_3
+#debug bool __Tmp_3
+ WRX  citac~R
+#debug_left bool citac~R
+ LD   bool s5
+#debug bool s5
+ WRX  citac~LD
+#debug_left bool citac~LD
+ LD   int 10
+ WRX  citac~PV
+#debug_left int citac~PV
+ LEAX citac
+ CAL  CTUD_L0
+#srcline 149 ;(* 67 *)    LD        citac.QD
+ LDX  citac~QD
+#debug bool citac.QD
+#srcline 150 ;(* 67 *)    ST        min
+ WRX  min
+#debug_left bool min
+#srcline 151 ;(* 68 *)    LD        citac.CV
+ LDX  citac~CV
+#debug int citac.CV
+ EXTW 
+#srcline 152 ;(* 68 *)    ST        hodnota
+ WRX  hodnota
+#debug_left int hodnota
+#srcline 153 ;(* 66 *)    LD        citac.QU
+ LDX  citac~QU
+#debug bool citac.QU
+#srcline 154 ;(* 70 *)    ST        max
+ WRX  max
+#debug_left bool max
+#srcline 155 ;(* Network 3 *)
+#srcline 156 ;(* 77 *)    LD_BOOL   max
+ LDX  max
+#debug bool max
+#srcline 157 ;(* 78 *)    OR        preklop
+ LDX  preklop
+#debug bool preklop
+ OR
+#srcline 158 ;(* 79 *)    ANDN      min
+ LDX  min
+#debug bool min
+ NEG
+ AND
+#srcline 159 ;(* 80 *)    ST        preklop
+ WRX  preklop
+#debug_left bool preklop
+#srcline 160 ;(* Network 4 *)
+#srcline 161 ;(* 88 *)    LD_bool true
+ LD   bool -1       ; true
+#srcline 162 ;(* 88 *)    JMPCN __PouSkip_87
+ JMC  funkcniblokcitac_p___POUSKIP_87
+#srcline 163 ;(* 87 *)    LD        hodnota
+ LDX  hodnota
+#debug int hodnota
+ EXTW 
+#srcline 164 ;(* 90 *)    GE        3
+ LD   int 3
+ LTS
+ NEG
+#srcline 165 ;(* 91 *)    __CR_TEST
+ OR   BOOL 0
+#debug_type bool
+#srcline 166 ;(* 87 *)  __PouSkip_87:
+funkcniblokcitac_p___POUSKIP_87:
+#srcline 167 ;(* 94 *)    JMPCN __PouSkip_93
+ JMC  funkcniblokcitac_p___POUSKIP_93
+#srcline 168 ;(* 93 *)    LD        hodnota
+ LDX  hodnota
+#debug int hodnota
+ EXTW 
+#srcline 169 ;(* 96 *)    LT        5
+ LD   int 5
+ LTS
+#srcline 170 ;(* 97 *)    __CR_TEST
+ OR   BOOL 0
+#debug_type bool
+#srcline 171 ;(* 93 *)  __PouSkip_93:
+funkcniblokcitac_p___POUSKIP_93:
+#srcline 172 ;(* 99 *)    ST        mala
+ WRX  mala
+#debug_left bool mala
+#srcline 173 ;(* Network 5 *)
+#srcline 174 ;(* 107 *)    LD_bool true
+ LD   bool -1       ; true
+#srcline 175 ;(* 107 *)    JMPCN __PouSkip_106
+ JMC  funkcniblokcitac_p___POUSKIP_106
+#srcline 176 ;(* 106 *)    LD        hodnota
+ LDX  hodnota
+#debug int hodnota
+ EXTW 
+#srcline 177 ;(* 109 *)    GT        7
+ LD   int 7
+ GTS
+#srcline 178 ;(* 110 *)    __CR_TEST
+ OR   BOOL 0
+#debug_type bool
+#srcline 179 ;(* 106 *)  __PouSkip_106:
+funkcniblokcitac_p___POUSKIP_106:
+#srcline 180 ;(* 113 *)    JMPCN __PouSkip_112
+ JMC  funkcniblokcitac_p___POUSKIP_112
+#srcline 181 ;(* 112 *)    LD        hodnota
+ LDX  hodnota
+#debug int hodnota
+ EXTW 
+#srcline 182 ;(* 115 *)    LE        9
+ LD   int 9
+ GTS
+ NEG
+#srcline 183 ;(* 116 *)    __CR_TEST
+ OR   BOOL 0
+#debug_type bool
+#srcline 184 ;(* 112 *)  __PouSkip_112:
+funkcniblokcitac_p___POUSKIP_112:
+#srcline 185 ;(* 118 *)    ST        velka
+ WRX  velka
+#debug_left bool velka
+#srcline 186 ;END_PROGRAM
+ ULNK
+RET
+E     61
+#endpou 
+
+
+
+ 
+
+#srcfile ''

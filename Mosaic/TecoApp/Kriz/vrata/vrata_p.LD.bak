@@ -1,0 +1,62 @@
+PROGRAM vrata_p
+  VAR_INPUT
+  END_VAR
+  VAR_OUTPUT
+  END_VAR
+  VAR
+  END_VAR
+  VAR_TEMP
+  END_VAR
+{NOCODE}
+(*
+  Komentáø ke schématu
+*)
+
+{NETWORK}
+(*
+  Komentáø k obvodu
+*)
+  LD_BOOL   "start"
+  AND       "zavreno"
+  OR        "otevirani"
+  ANDN      "otevreno"
+  ANDN      "stop"
+  ST        "otevirani"
+{/NETWORK}
+
+{NETWORK}
+(*
+
+*)
+  LD_BOOL   "start"
+  AND       "otevreno"
+  OR        "zavirani"
+  ANDN      "zavreno"
+  ANDN      "stop"
+  ST        "zavirani"
+{/NETWORK}
+
+
+{/NOCODE}
+{ILCODE}
+(* Network 1 *)
+(* 19 *)    LD_BOOL   start
+(* 20 *)    AND       zavreno
+(* 21 *)    OR        otevirani
+(* 22 *)    ANDN      otevreno
+(* 23 *)    ANDN      stop
+(* 24 *)    ST        otevirani
+(* Network 2 *)
+(* 31 *)    LD_BOOL   start
+(* 32 *)    AND       otevreno
+(* 33 *)    OR        zavirani
+(* 34 *)    ANDN      zavreno
+(* 35 *)    ANDN      stop
+(* 36 *)    ST        zavirani
+END_PROGRAM
+{STCODE}
+
+{DEBUG_INFO=
+ 19:43:0 20:44:0 21:45:0 22:46:0 23:47:0 24:48:0 31:50:0 32:51:0 33:52:0
+ 34:53:0 35:54:0 36:55:0
+}

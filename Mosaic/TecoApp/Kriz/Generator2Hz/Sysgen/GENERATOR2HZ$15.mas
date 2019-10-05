@@ -1,0 +1,17 @@
+#srcfile 'H:\MOSAIC\TECOAPP\KRIZ\GENERATOR2HZ\GENERATOR2HZ.MCF'
+ 
+#srcfile 'H:\MOSAIC\TECOAPP\KRIZ\GENERATOR2HZ\GENERATOR2HZ.MCF'
+
+; ***** RESOURCE - CPM
+#reg generator2hz_p generator2hz_i
+#srcline 4 ;    PROGRAM generator2hz_i WITH FreeWheeling : generator2hz_p ();
+P     0
+ LEA  generator2hz_i
+ CAL  generator2hz_p_L0
+E     0
+
+
+
+ 
+
+#srcfile ''

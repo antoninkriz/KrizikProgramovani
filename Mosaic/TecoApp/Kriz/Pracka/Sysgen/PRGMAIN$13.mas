@@ -1,0 +1,104 @@
+#srcfile 'H:\MOSAIC\TECOAPP\KRIZ\PRACKA\PRGMAIN.LD'
+
+#defpou prgMain
+  bool bezi,
+  bool k1,
+  bool k2,
+  bool k3
+
+ 
+#srcfile 'H:\MOSAIC\TECOAPP\KRIZ\PRACKA\PRGMAIN.LD'
+#pou prgMain
+#srcline 1 ;PROGRAM prgMain
+P     61
+prgMain_L0:
+ LINK 0
+#srcline 67 ;(* 23 *)    LD_BOOL   s1
+ LD   bool s1
+#debug bool s1
+#srcline 68 ;(* 24 *)    OR        bezi
+ LDX  bezi
+#debug bool bezi
+ OR
+#srcline 69 ;(* 25 *)    ST        bezi
+ WRX  bezi
+#debug_left bool bezi
+#srcline 70 ;(* Network 2 *)
+#srcline 71 ;(* 32 *)    LD_BOOL   bezi
+ LDX  bezi
+#debug bool bezi
+#srcline 72 ;(* 33 *)    ST        k1
+ WRX  k1
+#debug_left bool k1
+#srcline 73 ;(* 34 *)    ANDN      s2
+ LD   bool s2
+#debug bool s2
+ NEG
+ AND
+#srcline 74 ;(* 35 *)    ANDN      k2
+ LDX  k2
+#debug bool k2
+ NEG
+ AND
+#srcline 75 ;(* 36 *)    ANDN      k3
+ LDX  k3
+#debug bool k3
+ NEG
+ AND
+#srcline 76 ;(* 37 *)    ST        v1
+ WR   bool v1
+#debug_left bool v1
+#srcline 77 ;(* Network 3 *)
+#srcline 78 ;(* 44 *)    LD_BOOL   bezi
+ LDX  bezi
+#debug bool bezi
+#srcline 79 ;(* 45 *)    AND       s2
+ LD   bool s2
+#debug bool s2
+ AND
+#srcline 80 ;(* 46 *)    ANDN      s3
+ LD   bool s3
+#debug bool s3
+ NEG
+ AND
+#srcline 81 ;(* 47 *)    ANDN      k3
+ LDX  k3
+#debug bool k3
+ NEG
+ AND
+#srcline 82 ;(* 48 *)    ST        v2
+ WR   bool v2
+#debug_left bool v2
+#srcline 83 ;(* 49 *)    ST        k2
+ WRX  k2
+#debug_left bool k2
+#srcline 84 ;(* Network 4 *)
+#srcline 85 ;(* 56 *)    LD_BOOL   bezi
+ LDX  bezi
+#debug bool bezi
+#srcline 86 ;(* 57 *)    AND       s3
+ LD   bool s3
+#debug bool s3
+ AND
+#srcline 87 ;(* 58 *)    ANDN      s4
+ LD   bool s4
+#debug bool s4
+ NEG
+ AND
+#srcline 88 ;(* 59 *)    ST        v3
+ WR   bool v3
+#debug_left bool v3
+#srcline 89 ;(* 60 *)    ST        k3
+ WRX  k3
+#debug_left bool k3
+#srcline 90 ;END_PROGRAM
+ ULNK
+RET
+E     61
+#endpou 
+
+
+
+ 
+
+#srcfile ''

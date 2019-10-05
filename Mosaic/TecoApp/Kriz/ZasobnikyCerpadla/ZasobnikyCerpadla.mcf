@@ -1,0 +1,6 @@
+CONFIGURATION ZasobnikyCerpadla
+  RESOURCE CPM
+    TASK FreeWheeling(Number := 0);
+    PROGRAM zasobnikycerpadla_i WITH FreeWheeling : zasobnikycerpadla_p ();
+  END_RESOURCE
+END_CONFIGURATION

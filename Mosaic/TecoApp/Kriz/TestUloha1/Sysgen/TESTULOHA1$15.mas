@@ -1,0 +1,17 @@
+#srcfile 'H:\MOSAIC\TECOAPP\KRIZ\TESTULOHA1\TESTULOHA1.MCF'
+ 
+#srcfile 'H:\MOSAIC\TECOAPP\KRIZ\TESTULOHA1\TESTULOHA1.MCF'
+
+; ***** RESOURCE - CPM
+#reg testuloha1_p testuloha1_i
+#srcline 4 ;    PROGRAM testuloha1_i WITH FreeWheeling : testuloha1_p ();
+P     0
+ LEA  testuloha1_i
+ CAL  testuloha1_p_L0
+E     0
+
+
+
+ 
+
+#srcfile ''

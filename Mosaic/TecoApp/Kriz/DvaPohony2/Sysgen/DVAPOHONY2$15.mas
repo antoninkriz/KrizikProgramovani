@@ -1,0 +1,17 @@
+#srcfile 'H:\MOSAIC\TECOAPP\KRIZ\DVAPOHONY2\DVAPOHONY2.MCF'
+ 
+#srcfile 'H:\MOSAIC\TECOAPP\KRIZ\DVAPOHONY2\DVAPOHONY2.MCF'
+
+; ***** RESOURCE - CPM
+#reg dvapohony2_p dvapohony2_i
+#srcline 4 ;    PROGRAM dvapohony2_i WITH FreeWheeling : dvapohony2_p ();
+P     0
+ LEA  dvapohony2_i
+ CAL  dvapohony2_p_L0
+E     0
+
+
+
+ 
+
+#srcfile ''

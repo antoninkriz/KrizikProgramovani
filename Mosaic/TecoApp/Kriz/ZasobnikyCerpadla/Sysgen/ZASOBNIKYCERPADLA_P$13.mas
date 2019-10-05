@@ -1,0 +1,119 @@
+#srcfile 'H:\MOSAIC\TECOAPP\KRIZ\ZASOBNIKYCERPADLA\ZASOBNIKYCERPADLA_P.LD'
+
+#defpou zasobnikycerpadla_p
+  byte dummy
+
+ 
+#srcfile 'H:\MOSAIC\TECOAPP\KRIZ\ZASOBNIKYCERPADLA\ZASOBNIKYCERPADLA_P.LD'
+#pou zasobnikycerpadla_p
+#srcline 1 ;PROGRAM zasobnikycerpadla_p
+P     61
+zasobnikycerpadla_p_L0:
+ LINK 0
+#srcline 51 ;(* 19 *)    LD_BOOL   CERP
+ LD   bool CERP
+#debug bool CERP
+#srcline 52 ;(* 20 *)    ANDN      L90
+ LD   bool L90
+#debug bool L90
+ NEG
+ AND
+#srcline 53 ;(* 21 *)    OR(
+ PSHL
+#srcline 54 ;(* 22 *)      LDN_BOOL  L90
+ LD   bool L90
+#debug bool L90
+ NEG
+#srcline 55 ;(* 23 *)      AND(
+ PSHL
+#srcline 56 ;(* 24 *)        LDN_BOOL  L80
+ LD   bool L80
+#debug bool L80
+ NEG
+#srcline 57 ;(* 25 *)        ANDN      P80
+ LD   bool P80
+#debug bool P80
+ NEG
+ AND
+#srcline 58 ;(* 26 *)        ORN       L50
+ LD   bool L50
+#debug bool L50
+ NEG
+ OR
+#srcline 59 ;(* 27 *)      )
+ POPL
+#debug_type bool
+ AND
+#srcline 60 ;(* 28 *)    )
+ POPL
+#debug_type bool
+ OR
+#srcline 61 ;(* 29 *)    ST        LVENT
+ WR   bool LVENT
+#debug_left bool LVENT
+#srcline 62 ;(* 30 *)    OR(
+ PSHL
+#srcline 63 ;(* 31 *)      LD_BOOL   CERP
+ LD   bool CERP
+#debug bool CERP
+#srcline 64 ;(* 32 *)      ANDN      P90
+ LD   bool P90
+#debug bool P90
+ NEG
+ AND
+#srcline 65 ;(* 33 *)      OR(
+ PSHL
+#srcline 66 ;(* 34 *)        LDN_BOOL  P90
+ LD   bool P90
+#debug bool P90
+ NEG
+#srcline 67 ;(* 35 *)        AND(
+ PSHL
+#srcline 68 ;(* 36 *)          LDN_BOOL  P80
+ LD   bool P80
+#debug bool P80
+ NEG
+#srcline 69 ;(* 37 *)          ANDN      L80
+ LD   bool L80
+#debug bool L80
+ NEG
+ AND
+#srcline 70 ;(* 38 *)          ORN       P50
+ LD   bool P50
+#debug bool P50
+ NEG
+ OR
+#srcline 71 ;(* 39 *)        )
+ POPL
+#debug_type bool
+ AND
+#srcline 72 ;(* 40 *)      )
+ POPL
+#debug_type bool
+ OR
+#srcline 73 ;(* 41 *)      ANDN      LVENT
+ LD   bool LVENT
+#debug bool LVENT
+ NEG
+ AND
+#srcline 74 ;(* 42 *)      ST        PVENT
+ WR   bool PVENT
+#debug_left bool PVENT
+#srcline 75 ;(* 43 *)    )
+ POPL
+#debug_type bool
+ OR
+#srcline 76 ;(* 44 *)    ST        CERP
+ WR   bool CERP
+#debug_left bool CERP
+#srcline 77 ;END_PROGRAM
+ ULNK
+RET
+E     61
+#endpou 
+
+
+
+ 
+
+#srcfile ''

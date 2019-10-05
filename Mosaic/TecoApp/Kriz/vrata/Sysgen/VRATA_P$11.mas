@@ -1,0 +1,68 @@
+#srcfile 'H:\MOSAIC\TECOAPP\KRIZ\VRATA\VRATA_P.LD'
+
+#defpou vrata_p
+  byte dummy
+
+ 
+#srcfile 'H:\MOSAIC\TECOAPP\KRIZ\VRATA\VRATA_P.LD'
+#pou vrata_p
+#srcline 1 ;PROGRAM vrata_p
+P     61
+vrata_p_L0:
+ LINK 0
+#srcline 42 ;(* 19 *)    LD_BOOL   start
+ LD   bool start
+#debug bool start
+#srcline 43 ;(* 20 *)    OR        otevirani
+ LD   bool otevirani
+#debug bool otevirani
+ OR
+#srcline 44 ;(* 21 *)    ANDN      otevreno
+ LD   bool otevreno
+#debug bool otevreno
+ NEG
+ AND
+#srcline 45 ;(* 22 *)    ANDN      stop
+ LD   bool stop
+#debug bool stop
+ NEG
+ AND
+#srcline 46 ;(* 23 *)    ST        otevirani
+ WR   bool otevirani
+#debug_left bool otevirani
+#srcline 47 ;(* Network 2 *)
+#srcline 48 ;(* 30 *)    LD_BOOL   start
+ LD   bool start
+#debug bool start
+#srcline 49 ;(* 31 *)    AND       otevreno
+ LD   bool otevreno
+#debug bool otevreno
+ AND
+#srcline 50 ;(* 32 *)    OR        zavirani
+ LD   bool zavirani
+#debug bool zavirani
+ OR
+#srcline 51 ;(* 33 *)    ANDN      zavreno
+ LD   bool zavreno
+#debug bool zavreno
+ NEG
+ AND
+#srcline 52 ;(* 34 *)    ANDN      stop
+ LD   bool stop
+#debug bool stop
+ NEG
+ AND
+#srcline 53 ;(* 35 *)    ST        zavirani
+ WR   bool zavirani
+#debug_left bool zavirani
+#srcline 54 ;END_PROGRAM
+ ULNK
+RET
+E     61
+#endpou 
+
+
+
+ 
+
+#srcfile ''

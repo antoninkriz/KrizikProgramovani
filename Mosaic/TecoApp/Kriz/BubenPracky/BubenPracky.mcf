@@ -1,0 +1,6 @@
+CONFIGURATION BubenPracky
+  RESOURCE CPM
+    TASK FreeWheeling(Number := 0);
+    PROGRAM bubenpracky_i WITH FreeWheeling : bubenpracky_p ();
+  END_RESOURCE
+END_CONFIGURATION

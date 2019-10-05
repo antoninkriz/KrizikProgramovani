@@ -1,0 +1,108 @@
+PROGRAM pohybbrusky_p
+  VAR_INPUT
+  END_VAR
+  VAR_OUTPUT
+  END_VAR
+  VAR
+    beh : BOOL;
+    zastav : BOOL;
+  END_VAR
+  VAR_TEMP
+  END_VAR
+{NOCODE}
+(*
+  Komentáø ke schématu
+*)
+
+{NETWORK}
+(*
+  Komentáø k obvodu
+*)
+  LD_BOOL   "START"
+  AND       "Leva"
+  OR        "beh"
+  OR(
+    LD_BOOL   "STOP"
+    OR        "zastav"
+    ST        "zastav"
+  )
+  AND(
+    LDN_BOOL  "zastav"
+    OR(
+      LD_BOOL   "zastav"
+      ANDN      "Leva"
+    )
+  )
+  ST        "beh"
+{/NETWORK}
+
+{NETWORK}
+(*
+
+*)
+  LD_BOOL   "beh"
+  AND(
+    LD_BOOL   "Leva"
+    OR        "Vpravo"
+  )
+  ANDN      "Prava"
+  ST        "Vpravo"
+{/NETWORK}
+
+{NETWORK}
+(*
+
+*)
+  LD_BOOL   "beh"
+  AND(
+    LD_BOOL   "Prava"
+    OR        "Vlevo"
+  )
+  ANDN      "Leva"
+  ST        "Vlevo"
+{/NETWORK}
+
+
+{/NOCODE}
+{ILCODE}
+(* Network 1 *)
+(* 21 *)    LD_BOOL   START
+(* 22 *)    AND       Leva
+(* 23 *)    OR        beh
+(* 24 *)    OR(
+(* 25 *)      LD_BOOL   STOP
+(* 26 *)      OR        zastav
+(* 27 *)      ST        zastav
+(* 28 *)    )
+(* 29 *)    AND(
+(* 30 *)      LDN_BOOL  zastav
+(* 31 *)      OR(
+(* 32 *)        LD_BOOL   zastav
+(* 33 *)        ANDN      Leva
+(* 34 *)      )
+(* 35 *)    )
+(* 36 *)    ST        beh
+(* Network 2 *)
+(* 43 *)    LD_BOOL   beh
+(* 44 *)    AND(
+(* 45 *)      LD_BOOL   Leva
+(* 46 *)      OR        Vpravo
+(* 47 *)    )
+(* 48 *)    ANDN      Prava
+(* 49 *)    ST        Vpravo
+(* Network 3 *)
+(* 56 *)    LD_BOOL   beh
+(* 57 *)    AND(
+(* 58 *)      LD_BOOL   Prava
+(* 59 *)      OR        Vlevo
+(* 60 *)    )
+(* 61 *)    ANDN      Leva
+(* 62 *)    ST        Vlevo
+END_PROGRAM
+{STCODE}
+
+{DEBUG_INFO=
+ 21:69:0 22:70:0 23:71:0 25:73:0 26:74:0 27:75:0 28:76:0 30:78:0 32:80:0
+ 33:81:0 34:82:0 35:83:0 36:84:0 43:86:0 45:88:0 46:89:0 47:90:0 48:91:0
+ 49:92:0 56:94:0 58:96:0 59:97:0 60:98:0 61:99:0 62:100:0
+}

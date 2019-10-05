@@ -1,0 +1,77 @@
+#srcfile 'H:\MOSAIC\TECOAPP\KRIZ\VYKONY4CST\VYKONY4CST_P.ST'
+ 
+ LD   bool s1
+#debug bool s1
+ JMC  vykony4cst_p_L1
+#srcline 19 ;     h1 := 1;
+ LD   int 1
+ WRX  h1
+#debug_left int h1
+#srcline 20 ;  END_IF;
+vykony4cst_p_L1:
+#srcline 21 ;  IF s2 THEN
+ LD   bool s2
+#debug bool s2
+ JMC  vykony4cst_p_L3
+#srcline 22 ;     h2 := 4;
+ LD   int 4
+ WRX  h2
+#debug_left int h2
+#srcline 23 ;  END_IF;
+vykony4cst_p_L3:
+#srcline 24 ;  IF s3 THEN
+ LD   bool s3
+#debug bool s3
+ JMC  vykony4cst_p_L5
+#srcline 25 ;     h3 := 7;
+ LD   int 7
+ WRX  h3
+#debug_left int h3
+#srcline 26 ;  END_IF;
+vykony4cst_p_L5:
+#srcline 27 ;  IF s4 THEN
+ LD   bool s4
+#debug bool s4
+ JMC  vykony4cst_p_L7
+#srcline 28 ;     h4 := 9;
+ LD   int 9
+ WRX  h4
+#debug_left int h4
+#srcline 29 ;  END_IF;
+vykony4cst_p_L7:
+#srcline 30 ;  
+#srcline 31 ;  
+#srcline 32 ;  h := h1 + h2 + h3 + h4;
+ LDX  h1
+#debug int h1
+ EXTW 
+ LDX  h2
+#debug int h2
+ EXTW 
+ ADD
+ EXTW
+ LDX  h3
+#debug int h3
+ EXTW 
+ ADD
+ EXTW
+ LDX  h4
+#debug int h4
+ EXTW 
+ ADD
+ EXTW
+ WRX  h
+#debug_left int h
+#srcline 33 ;  IF h <= 10 THEN
+ LDX  h
+#debug int h
+ EXTW 
+ LD   int 10
+ GTS
+ NEG
+ JMC  vykony4cst_p_L9
+#srcline 34 ;     splneno := true;
+; *** ERROR[2] - LINE: 34: COLUMN: 13 - Oèekává se ';' nebo v pøedchozím výrazu chybí ';'
+ 
+
+#srcfile ''

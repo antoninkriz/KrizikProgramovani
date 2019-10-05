@@ -1,0 +1,17 @@
+#srcfile 'H:\MOSAIC\TECOAPP\KRIZ\VYKONY4CST\VYKONY4CST.MCF'
+ 
+#srcfile 'H:\MOSAIC\TECOAPP\KRIZ\VYKONY4CST\VYKONY4CST.MCF'
+
+; ***** RESOURCE - CPM
+#reg vykony4cst_p vykony4cst_i
+#srcline 4 ;    PROGRAM vykony4cst_i WITH FreeWheeling : vykony4cst_p ();
+P     0
+ LEA  vykony4cst_i
+ CAL  vykony4cst_p_L0
+E     0
+
+
+
+ 
+
+#srcfile ''

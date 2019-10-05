@@ -1,0 +1,122 @@
+PROGRAM prgMain
+  VAR_INPUT
+  END_VAR
+  VAR_OUTPUT
+  END_VAR
+  VAR
+    c1 : TOF;
+    c2 : TOF;
+    c3 : TOF;
+    c4 : TOF;
+  END_VAR
+  VAR_TEMP
+  END_VAR
+{NOCODE}
+(*
+  Komentáø ke schématu
+*)
+
+{NETWORK}
+(*
+  Komentáø k obvodu
+*)
+  LD_BOOL   "s1"
+  OR        "s2"
+  {POU:TOF} "c1"
+    {PIN:IN} {/PIN}
+    {PIN:PT} "T#5s" {/PIN}
+    {PINO:Q} {/PIN}
+    {PINO:ET} {/PIN}
+  {/POU}
+  ST        "sv1"
+{/NETWORK}
+
+{NETWORK}
+(*
+
+*)
+  LD_BOOL   "s1"
+  OR        "s2"
+  OR        "s3"
+  {POU:TOF} "c2"
+    {PIN:IN} {/PIN}
+    {PIN:PT} "T#5s" {/PIN}
+    {PINO:Q} {/PIN}
+    {PINO:ET} {/PIN}
+  {/POU}
+  ST        "sv2"
+{/NETWORK}
+
+{NETWORK}
+(*
+
+*)
+  LD_BOOL   "s2"
+  OR        "s3"
+  OR        "s4"
+  {POU:TOF} "c3"
+    {PIN:IN} {/PIN}
+    {PIN:PT} "T#5s" {/PIN}
+    {PINO:Q} {/PIN}
+    {PINO:ET} {/PIN}
+  {/POU}
+  ST        "sv3"
+{/NETWORK}
+
+{NETWORK}
+(*
+
+*)
+  LD_BOOL   "s3"
+  OR        "s4"
+  {POU:TOF} "c4"
+    {PIN:IN} {/PIN}
+    {PIN:PT} "T#5s" {/PIN}
+    {PINO:Q} {/PIN}
+    {PINO:ET} {/PIN}
+  {/POU}
+  ST        "sv4"
+{/NETWORK}
+
+
+{/NOCODE}
+{ILCODE}
+(* Network 1 *)
+(* 23 *)    LD_BOOL   s1
+(* 24 *)    OR        s2
+(* 26 *)    ST        c1.IN
+(* 25 *)    CAL c1 (PT:=T#5s)
+(* 28 *)    LD        c1.Q
+(* 31 *)    ST        sv1
+(* Network 2 *)
+(* 38 *)    LD_BOOL   s1
+(* 39 *)    OR        s2
+(* 40 *)    OR        s3
+(* 42 *)    ST        c2.IN
+(* 41 *)    CAL c2 (PT:=T#5s)
+(* 44 *)    LD        c2.Q
+(* 47 *)    ST        sv2
+(* Network 3 *)
+(* 54 *)    LD_BOOL   s2
+(* 55 *)    OR        s3
+(* 56 *)    OR        s4
+(* 58 *)    ST        c3.IN
+(* 57 *)    CAL c3 (PT:=T#5s)
+(* 60 *)    LD        c3.Q
+(* 63 *)    ST        sv3
+(* Network 4 *)
+(* 70 *)    LD_BOOL   s3
+(* 71 *)    OR        s4
+(* 73 *)    ST        c4.IN
+(* 72 *)    CAL c4 (PT:=T#5s)
+(* 75 *)    LD        c4.Q
+(* 78 *)    ST        sv4
+END_PROGRAM
+{STCODE}
+
+{DEBUG_INFO=
+ 23:85:0 24:86:0 26:87:0 27:88:0 25:88:0 28:89:0 31:90:0 38:92:0 39:93:0
+ 40:94:0 42:95:0 43:96:0 41:96:0 44:97:0 47:98:0 54:100:0 55:101:0 56:102:0
+ 58:103:0 59:104:0 57:104:0 60:105:0 63:106:0 70:108:0 71:109:0 73:110:0 74:111:0
+ 72:111:0 75:112:0 78:113:0
+}

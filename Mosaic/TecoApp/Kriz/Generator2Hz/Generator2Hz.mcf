@@ -1,0 +1,6 @@
+CONFIGURATION Generator2Hz
+  RESOURCE CPM
+    TASK FreeWheeling(Number := 0);
+    PROGRAM generator2hz_i WITH FreeWheeling : generator2hz_p ();
+  END_RESOURCE
+END_CONFIGURATION

@@ -1,0 +1,6 @@
+CONFIGURATION FunkcniBlokCitac
+  RESOURCE CPM
+    TASK FreeWheeling(Number := 0);
+    PROGRAM funkcniblokcitac_i WITH FreeWheeling : funkcniblokcitac_p ();
+  END_RESOURCE
+END_CONFIGURATION

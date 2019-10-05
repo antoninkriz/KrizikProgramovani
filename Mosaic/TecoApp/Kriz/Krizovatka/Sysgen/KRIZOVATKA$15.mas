@@ -1,0 +1,22 @@
+#srcfile 'H:\MOSAIC\TECOAPP\KRIZ\KRIZOVATKA\KRIZOVATKA.MCF'
+ 
+#srcfile 'H:\MOSAIC\TECOAPP\KRIZ\KRIZOVATKA\KRIZOVATKA.MCF'
+
+; ***** RESOURCE - CPM
+#reg krizovatka_p krizovatka_i
+#srcline 4 ;    PROGRAM krizovatka_i WITH FreeWheeling : krizovatka_p ();
+P     0
+ LEA  krizovatka_i
+ CAL  krizovatka_p_L0
+E     0
+
+; Initialize - program
+P     58
+ LEA  krizovatka_i
+ CAL  krizovatka_p__InstanceInit__
+E     58
+
+
+ 
+
+#srcfile ''

@@ -1,0 +1,76 @@
+PROGRAM rozbehmotoru_p
+  VAR_INPUT
+  END_VAR
+  VAR_OUTPUT
+  END_VAR
+  VAR
+    casovac : TON;
+    pom : BOOL;
+    cas : TIME;
+    zarovka : BOOL;
+  END_VAR
+  VAR_TEMP
+  END_VAR
+{NOCODE}
+(*
+  Komentáø ke schématu
+*)
+
+{NETWORK}
+(*
+Start + Spinani tranzistoru T1
+*)
+  LD_BOOL   "start"
+  OR        "t1"
+  ANDN      "stop"
+  ST        "t1"
+{/NETWORK}
+
+{NETWORK}
+(*
+Generovani casoveho zpozdeni po startu
+*)
+  LD_BOOL   "t1"
+  {POU:TON} "casovac"
+    {PIN:IN} {/PIN}
+    {PIN:PT} "T#5s" {/PIN}
+    {PINO:Q} {/PIN}
+    {PINO:ET} "cas" {/PIN}
+  {/POU}
+  ST        "pom"
+{/NETWORK}
+
+{NETWORK}
+(*
+Spinani tranzistoru T2
+*)
+  LD_BOOL   "pom"
+  ST        "t2"
+{/NETWORK}
+
+
+{/NOCODE}
+{ILCODE}
+(* Network 1 *)
+(* 23 *)    LD_BOOL   start
+(* 24 *)    OR        t1
+(* 25 *)    ANDN      stop
+(* 26 *)    ST        t1
+(* Network 2 *)
+(* 33 *)    LD_BOOL   t1
+(* 35 *)    ST        casovac.IN
+(* 34 *)    CAL casovac (PT:=T#5s)
+(* 38 *)    LD        casovac.ET
+(* 38 *)    ST        cas
+(* 37 *)    LD        casovac.Q
+(* 40 *)    ST        pom
+(* Network 3 *)
+(* 47 *)    LD_BOOL   pom
+(* 48 *)    ST        t2
+END_PROGRAM
+{STCODE}
+
+{DEBUG_INFO=
+ 23:55:0 24:56:0 25:57:0 26:58:0 33:60:0 35:61:0 36:62:0 34:62:0 38:64:0
+ 37:65:0 40:66:0 47:68:0 48:69:0
+}

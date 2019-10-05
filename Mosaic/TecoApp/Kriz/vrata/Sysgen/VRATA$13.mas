@@ -1,0 +1,17 @@
+#srcfile 'H:\MOSAIC\TECOAPP\KRIZ\VRATA\VRATA.MCF'
+ 
+#srcfile 'H:\MOSAIC\TECOAPP\KRIZ\VRATA\VRATA.MCF'
+
+; ***** RESOURCE - CPM
+#reg vrata_p vrata_i
+#srcline 4 ;    PROGRAM vrata_i WITH FreeWheeling : vrata_p ();
+P     0
+ LEA  vrata_i
+ CAL  vrata_p_L0
+E     0
+
+
+
+ 
+
+#srcfile ''

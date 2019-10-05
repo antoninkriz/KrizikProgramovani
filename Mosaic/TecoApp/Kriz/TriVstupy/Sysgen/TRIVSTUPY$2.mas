@@ -1,0 +1,150 @@
+#srcfile 'H:\MOSAIC\TECOAPP\KRIZ\TRIVSTUPY\Sysgen\TRIVSTUPY.mlh'
+
+#defpou R_TRIG
+  bool CLK,
+  bool Q,
+  bool M
+
+
+#defpou F_TRIG
+  bool CLK,
+  bool Q,
+  bool M
+
+
+#defpou SR
+  bool S1,
+  bool R,
+  bool Q1
+
+
+#defpou RS
+  bool S,
+  bool R1,
+  bool Q1
+
+
+#defpou CTU
+  bool CU,  ; vstup pro èítání nahoru
+  bool R,  ; reset èítaèe
+  int PV,  ; pøedvolba èítaèe
+  bool Q,  ; výstup èítaèe
+  int CV,  ; hodnota èítaèe
+  bool __EDGE_R__CU
+
+
+#defpou CTD
+  bool CD,  ; vstup pro èítání dolù
+  bool LD,  ; vstup pro nastavení pøedvolby
+  int PV,  ; pøedvolba èítaèe
+  bool Q,  ; výstup èítaèe
+  int CV,  ; hodnota èítaèe
+  bool __EDGE_R__CD
+
+
+#defpou CTUD
+  bool CU,  ; vstup pro èítání nahoru
+  bool CD,  ; vstup pro èítání dolù
+  bool R,  ; reset èítaèe
+  bool LD,  ; vstup pro nastavení pøedvolby
+  int PV,  ; pøedvolba èítaèe
+  bool QU,  ; výstup èítaèe nahoru
+  bool QD,  ; výstup èítaèe dolù
+  int CV,  ; hodnota èítaèe
+  bool __EDGE_R__CU,
+  bool __EDGE_R__CD
+
+
+#defpou TON
+  bool IN,  ; vstup èasovaèe
+  time PT,  ; pøedvolba èasovaèe
+  bool Q,  ; výstup èasovaèe
+  time ET,  ; aktuální hodnota èasovaèe
+  R_TRIG IN_r_edge,
+  time LT  ; last tick value ( 1ms resolution)
+
+
+#defpou TOF
+  bool IN,  ;  vstup èasovaèe
+  time PT,  ;  pøedvolba èasovaèe
+  bool Q,  ;  výstup èasovaèe
+  time ET,  ;  aktuální hodnota èasovaèe
+  F_TRIG IN_f_edge,
+  time LT  ;  last tick value ( 1ms resolution)
+
+
+#defpou TP
+  bool IN,  ; vstup èasovaèe
+  time PT,  ; pøedvolba èasovaèe
+  bool Q,  ; výstup èasovaèe
+  time ET,  ; aktuální hodnota èasovaèe
+  R_TRIG IN_r_edge,
+  time LT  ; last tick value ( 1ms resolution)
+
+
+#defpou __LATENT_INSTANCE ADD_TIME
+  time __fc__ADD_TIME,
+  time IN1,
+  time IN2
+
+
+#defpou __LATENT_INSTANCE SUB_TIME
+  time __fc__SUB_TIME,
+  time IN1,
+  time IN2
+
+
+#defpou __LATENT_INSTANCE ADD_TOD_TIME
+  time_of_day __fc__ADD_TOD_TIME,
+  time_of_day IN1,
+  time IN2
+
+
+#defpou __LATENT_INSTANCE ADD_DT_TIME
+  date_and_time __fc__ADD_DT_TIME,
+  date_and_time IN1,
+  time IN2
+
+
+#defpou __LATENT_INSTANCE SUB_DATE_DATE
+  time __fc__SUB_DATE_DATE,
+  date IN1,
+  date IN2
+
+
+#defpou __LATENT_INSTANCE SUB_TOD_TIME
+  time_of_day __fc__SUB_TOD_TIME,
+  time_of_day IN1,
+  time IN2
+
+
+#defpou __LATENT_INSTANCE SUB_TOD_TOD
+  time __fc__SUB_TOD_TOD,
+  time_of_day IN1,
+  time_of_day IN2
+
+
+#defpou __LATENT_INSTANCE SUB_DT_TIME
+  date_and_time __fc__SUB_DT_TIME,
+  date_and_time IN1,
+  time IN2
+
+
+#defpou __LATENT_INSTANCE SUB_DT_DT
+  time __fc__SUB_DT_DT,
+  date_and_time IN1,
+  date_and_time IN2
+
+
+#defpou __LATENT_INSTANCE CONCAT_DATE_TOD
+  date_and_time __fc__CONCAT_DATE_TOD,
+  date IN1,
+  time_of_day IN2
+
+ 
+#srcfile 'H:\MOSAIC\TECOAPP\KRIZ\TRIVSTUPY\Sysgen\TRIVSTUPY.mlh'
+
+
+ 
+
+#srcfile ''

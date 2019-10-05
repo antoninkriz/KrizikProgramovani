@@ -1,0 +1,5 @@
+CONFIGURATION Osvetleni4patra
+  RESOURCE CPM
+    TASK FreeWheeling(Number := 0);
+  END_RESOURCE
+END_CONFIGURATION

@@ -1,0 +1,179 @@
+;Upozornìní 
+;Soubor je automaticky regenerován a všechny ruèní modifikace budou ztracené. 
+;**********************************************************************
+;**********************************************************************
+;**********************************************************************
+#def _PRENOS	0
+#def _CERPADLA	1
+#def _TRIVSTUPY	2
+#def _VRATA	3
+#def _VYKONY	4
+#def _ROZBEHMOTORU	5
+#def _SVETLAAUTO	6
+#def _CERPADAREZERVNI	7
+#def _DVAPOHONY1	8
+#def _DVAPOHONY2	9
+#def _ZASOBNIKYCERPADLA	10
+#def _FUNKCNIBLOKCITAC	11
+#def _POHYBBRUSKY	12
+#def _POHYBBRUSKY0	13
+#def _OSVETLENI4PATRA	14
+#def _PRACKA	15
+#def _BUBENPRACKY	16
+#def _GENERATOR2HZ	17
+#def _POCETKROKU	18
+#def _VYKONY4C	19
+#def _VYKONY4CST	20
+#def _KRIZOVATKA	21
+#def _ZBYTEK	22
+#def _VYTAH4PATRA	23
+#if _ProgName_ == _PRENOS
+  #def _ProgName__PRENOS 1
+#else
+  #def _ProgName__PRENOS 0
+#endif
+
+#if _ProgName_ == _CERPADLA
+  #def _ProgName__CERPADLA 1
+#else
+  #def _ProgName__CERPADLA 0
+#endif
+
+#if _ProgName_ == _TRIVSTUPY
+  #def _ProgName__TRIVSTUPY 1
+#else
+  #def _ProgName__TRIVSTUPY 0
+#endif
+
+#if _ProgName_ == _VRATA
+  #def _ProgName__VRATA 1
+#else
+  #def _ProgName__VRATA 0
+#endif
+
+#if _ProgName_ == _VYKONY
+  #def _ProgName__VYKONY 1
+#else
+  #def _ProgName__VYKONY 0
+#endif
+
+#if _ProgName_ == _ROZBEHMOTORU
+  #def _ProgName__ROZBEHMOTORU 1
+#else
+  #def _ProgName__ROZBEHMOTORU 0
+#endif
+
+#if _ProgName_ == _SVETLAAUTO
+  #def _ProgName__SVETLAAUTO 1
+#else
+  #def _ProgName__SVETLAAUTO 0
+#endif
+
+#if _ProgName_ == _CERPADAREZERVNI
+  #def _ProgName__CERPADAREZERVNI 1
+#else
+  #def _ProgName__CERPADAREZERVNI 0
+#endif
+
+#if _ProgName_ == _DVAPOHONY1
+  #def _ProgName__DVAPOHONY1 1
+#else
+  #def _ProgName__DVAPOHONY1 0
+#endif
+
+#if _ProgName_ == _DVAPOHONY2
+  #def _ProgName__DVAPOHONY2 1
+#else
+  #def _ProgName__DVAPOHONY2 0
+#endif
+
+#if _ProgName_ == _ZASOBNIKYCERPADLA
+  #def _ProgName__ZASOBNIKYCERPADLA 1
+#else
+  #def _ProgName__ZASOBNIKYCERPADLA 0
+#endif
+
+#if _ProgName_ == _FUNKCNIBLOKCITAC
+  #def _ProgName__FUNKCNIBLOKCITAC 1
+#else
+  #def _ProgName__FUNKCNIBLOKCITAC 0
+#endif
+
+#if _ProgName_ == _POHYBBRUSKY
+  #def _ProgName__POHYBBRUSKY 1
+#else
+  #def _ProgName__POHYBBRUSKY 0
+#endif
+
+#if _ProgName_ == _POHYBBRUSKY0
+  #def _ProgName__POHYBBRUSKY0 1
+#else
+  #def _ProgName__POHYBBRUSKY0 0
+#endif
+
+#if _ProgName_ == _OSVETLENI4PATRA
+  #def _ProgName__OSVETLENI4PATRA 1
+#else
+  #def _ProgName__OSVETLENI4PATRA 0
+#endif
+
+#if _ProgName_ == _PRACKA
+  #def _ProgName__PRACKA 1
+#else
+  #def _ProgName__PRACKA 0
+#endif
+
+#if _ProgName_ == _BUBENPRACKY
+  #def _ProgName__BUBENPRACKY 1
+#else
+  #def _ProgName__BUBENPRACKY 0
+#endif
+
+#if _ProgName_ == _GENERATOR2HZ
+  #def _ProgName__GENERATOR2HZ 1
+#else
+  #def _ProgName__GENERATOR2HZ 0
+#endif
+
+#if _ProgName_ == _POCETKROKU
+  #def _ProgName__POCETKROKU 1
+#else
+  #def _ProgName__POCETKROKU 0
+#endif
+
+#if _ProgName_ == _VYKONY4C
+  #def _ProgName__VYKONY4C 1
+#else
+  #def _ProgName__VYKONY4C 0
+#endif
+
+#if _ProgName_ == _VYKONY4CST
+  #def _ProgName__VYKONY4CST 1
+#else
+  #def _ProgName__VYKONY4CST 0
+#endif
+
+#if _ProgName_ == _KRIZOVATKA
+  #def _ProgName__KRIZOVATKA 1
+#else
+  #def _ProgName__KRIZOVATKA 0
+#endif
+
+#if _ProgName_ == _ZBYTEK
+  #def _ProgName__ZBYTEK 1
+#else
+  #def _ProgName__ZBYTEK 0
+#endif
+
+#if _ProgName_ == _VYTAH4PATRA
+  #def _ProgName__VYTAH4PATRA 1
+#else
+  #def _ProgName__VYTAH4PATRA 0
+#endif
+
+
+;**********************************************************************
+;Generováno programem MOSAIC 
+;© 2001-2013 Teco a.s. 
+;Verze : 2.2 
+;DLL Verze : 13.1.2.247 

@@ -1,0 +1,6 @@
+CONFIGURATION Vykony4Cst
+  RESOURCE CPM
+    TASK FreeWheeling(Number := 0);
+    PROGRAM vykony4cst_i WITH FreeWheeling : vykony4cst_p ();
+  END_RESOURCE
+END_CONFIGURATION

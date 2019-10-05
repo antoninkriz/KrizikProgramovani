@@ -1,0 +1,6 @@
+CONFIGURATION DvaPohony2
+  RESOURCE CPM
+    TASK FreeWheeling(Number := 0);
+    PROGRAM dvapohony2_i WITH FreeWheeling : dvapohony2_p ();
+  END_RESOURCE
+END_CONFIGURATION

@@ -1,0 +1,17 @@
+#srcfile 'H:\MOSAIC\TECOAPP\KRIZ\TRIVSTUPY\TRIVSTUPY.MCF'
+ 
+#srcfile 'H:\MOSAIC\TECOAPP\KRIZ\TRIVSTUPY\TRIVSTUPY.MCF'
+
+; ***** RESOURCE - CPM
+#reg trivstupy_p trivstupu_i
+#srcline 4 ;    PROGRAM trivstupu_i WITH FreeWheeling : trivstupy_p ();
+P     0
+ LEA  trivstupu_i
+ CAL  trivstupy_p_L0
+E     0
+
+
+
+ 
+
+#srcfile ''

@@ -1,0 +1,22 @@
+#srcfile 'H:\MOSAIC\TECOAPP\KRIZ\OSVETLENI4PATRA\OSVETLENI4PATRA.MCF'
+ 
+#srcfile 'H:\MOSAIC\TECOAPP\KRIZ\OSVETLENI4PATRA\OSVETLENI4PATRA.MCF'
+
+; ***** RESOURCE - CPM
+#reg prgMain Main
+#srcline 4 ;    PROGRAM Main WITH FreeWheeling : prgMain ();
+P     0
+ LEA  Main
+ CAL  prgMain_L0
+E     0
+
+; Initialize - program
+P     58
+ LEA  Main
+ CAL  prgMain__InstanceInit__
+E     58
+
+
+ 
+
+#srcfile ''

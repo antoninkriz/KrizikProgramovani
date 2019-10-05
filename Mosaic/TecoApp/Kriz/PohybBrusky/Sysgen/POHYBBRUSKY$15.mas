@@ -1,0 +1,17 @@
+#srcfile 'H:\MOSAIC\TECOAPP\KRIZ\POHYBBRUSKY\POHYBBRUSKY.MCF'
+ 
+#srcfile 'H:\MOSAIC\TECOAPP\KRIZ\POHYBBRUSKY\POHYBBRUSKY.MCF'
+
+; ***** RESOURCE - CPM
+#reg pohybbrusky_p pohybbrusky_i
+#srcline 4 ;    PROGRAM pohybbrusky_i WITH FreeWheeling : pohybbrusky_p ();
+P     0
+ LEA  pohybbrusky_i
+ CAL  pohybbrusky_p_L0
+E     0
+
+
+
+ 
+
+#srcfile ''

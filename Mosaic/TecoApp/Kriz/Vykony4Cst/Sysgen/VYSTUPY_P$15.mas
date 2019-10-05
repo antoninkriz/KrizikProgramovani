@@ -1,0 +1,23 @@
+#srcfile 'H:\MOSAIC\TECOAPP\KRIZ\VYKONY4CST\VYSTUPY_P.LD'
+
+#defpou vystupy_p
+  byte dummy
+
+ 
+#srcfile 'H:\MOSAIC\TECOAPP\KRIZ\VYKONY4CST\VYSTUPY_P.LD'
+#pou vystupy_p
+#srcline 1 ;PROGRAM vystupy_p
+P     61
+vystupy_p_L0:
+ LINK 0
+#srcline 21 ;END_PROGRAM
+ ULNK
+RET
+E     61
+#endpou 
+
+
+
+ 
+
+#srcfile ''

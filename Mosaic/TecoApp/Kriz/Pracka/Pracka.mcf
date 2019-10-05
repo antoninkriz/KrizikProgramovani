@@ -1,0 +1,6 @@
+CONFIGURATION Pracka
+  RESOURCE CPM
+    TASK FreeWheeling(Number := 0);
+    PROGRAM pracka_p WITH FreeWheeling : prgMain ();
+  END_RESOURCE
+END_CONFIGURATION

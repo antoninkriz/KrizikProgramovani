@@ -1,0 +1,17 @@
+#srcfile 'H:\MOSAIC\TECOAPP\KRIZ\CERPADAREZERVNI\CERPADAREZERVNI.MCF'
+ 
+#srcfile 'H:\MOSAIC\TECOAPP\KRIZ\CERPADAREZERVNI\CERPADAREZERVNI.MCF'
+
+; ***** RESOURCE - CPM
+#reg cerpadlarezervni_p cerpadlarezervni_i
+#srcline 4 ;    PROGRAM cerpadlarezervni_i WITH FreeWheeling : cerpadlarezervni_p ();
+P     0
+ LEA  cerpadlarezervni_i
+ CAL  cerpadlarezervni_p_L0
+E     0
+
+
+
+ 
+
+#srcfile ''

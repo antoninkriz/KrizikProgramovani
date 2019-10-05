@@ -1,0 +1,17 @@
+#srcfile 'H:\MOSAIC\TECOAPP\KRIZ\PRACKA\PRACKA.MCF'
+ 
+#srcfile 'H:\MOSAIC\TECOAPP\KRIZ\PRACKA\PRACKA.MCF'
+
+; ***** RESOURCE - CPM
+#reg prgMain pracka_p
+#srcline 4 ;    PROGRAM pracka_p WITH FreeWheeling : prgMain ();
+P     0
+ LEA  pracka_p
+ CAL  prgMain_L0
+E     0
+
+
+
+ 
+
+#srcfile ''

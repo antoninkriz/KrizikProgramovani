@@ -1,0 +1,6 @@
+CONFIGURATION Zbytek
+  RESOURCE CPM
+    TASK FreeWheeling(Number := 0);
+    PROGRAM zbytek_i WITH FreeWheeling : zbytek_p ();
+  END_RESOURCE
+END_CONFIGURATION
